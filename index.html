@@ -324,6 +324,170 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://frienkie.xyz/2020/12/20/deepin/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="frienkie">
+      <meta itemprop="description" content="讨论自由！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="frienkie的记事本">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/20/deepin/" class="post-title-link" itemprop="url">pinxelbook2013安装deepin的优化</a>
+        </h2>
+
+        <div class="post-meta">
+	   
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-12-20 10:17:21 / 修改时间：10:23:01" itemprop="dateCreated datePublished" datetime="2020-12-20T10:17:21+08:00">2020-12-20</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/12/20/deepin/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/20/deepin/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近玩pixelbook有点腻了，于是又心痒想买个yogabook。只可惜半天出不出去。<br>没办法，再来刷机玩玩吧。先是安了win10 ltsc。驱动问题如下：<br>1.触摸板，触摸屏失效<br>2.耳机孔失效<br>3.音响声音默认最大<br>4.蓝牙找不到设备<br>5.屏幕亮度无法调节<br>这几个问题基本是让电脑废了一半。不过我购买的时候卖家用legacy引导装了一个较早版本的deepin，当时的情况是耳机孔失效，视频播放卡顿，蓝牙连接异常。<br>不过我都刷了bios了，不如用uefi引导安装一个最新的deepin 20吧。<br>结果居然有惊喜。蓝牙正常了，视频播放也没问题了。<br>真的挺完美的。不过耳机孔失效，外加键盘灯无法调整。一不做二不休，在一番搜寻之后，居然把耳机孔激活了。</p>
+<h4 id="激活耳机孔方法："><a href="#激活耳机孔方法：" class="headerlink" title="激活耳机孔方法："></a>激活耳机孔方法：</h4><p>1.输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo alsamixer</span><br></pre></td></tr></table></figure>
+<p>2.按s，选第二项HDA Intel PCH，回车<br>3.方向键右移至HP/speaker项，此时它应该是关着的状态，按m打开，再右移隔壁的HP/speaker项，按m打开<br>4.esc退出，完成</p>
+<p><del>alsamixer是alsa声卡驱动的控制程序</del><br>戏剧性的是，这其实是是解决早期版本fydeos耳机孔失效的方法，而这个设置被fydeos官方借鉴之后，fydeos之后版本的耳机孔就能使用了。果然fydeos和linux师出同门啊。</p>
+<p>那么，键盘第一排的快捷键怎么办？<br>默认情况下，其实是对应了f1-f12。<br>如果想要恢复原来的功能的话，可以：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Downloads;</span><br><span class="line">sudo apt-get -y install curl;</span><br><span class="line">curl -LOk https://github.com/fascinatingcaptain/CBFixesAndTweaks/archive/master.tar.gz;</span><br><span class="line">tar -zxvf master.tar.gz;</span><br><span class="line"><span class="built_in">cd</span> CBFixesAndTweaks-master;</span><br><span class="line">sudo -E bash CBFixesAndTweaks.sh</span><br></pre></td></tr></table></figure>
+<p>这是github上某外国老哥写的配置，原理是修改f1-f12的按键映射。<br>这样一来，原来的功能又会来了。但是f1没有了，就算外接键盘也不行。<br>这样之后，应该比较好用了。至于键盘灯，其实可以和ubantu一样，运行</p>
+<pre><code class="bash"><span class="built_in">echo</span> 0 &gt; /sys/class/leds/chromeos::kbd_backlight/brightness</code></pre>
+<p>就能控制键盘亮度，echo 100 最亮<br>（话说回来，就没人写个gui程序解决一下这个问题？？？）<br>ps：不过真的想出了啊～～<br>ps2：Dir-A也玩chromebook啊，一个收集夜羊社游戏的人，在b站发过各种gal引擎汉化教程又删除的人也用chromebook？有点巧啊。<br>ps3：这么一看，fydeos居然在chromebook上还比不过deepin？fydeos药丸 XD</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://frienkie.xyz/2020/12/20/novelyishijie/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="frienkie">
+      <meta itemprop="description" content="讨论自由！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="frienkie的记事本">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/20/novelyishijie/" class="post-title-link" itemprop="url">凑热闹来简单评价一下《小春在异世界...》</a>
+        </h2>
+
+        <div class="post-meta">
+	   
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-12-20 10:13:48 / 修改时间：10:17:07" itemprop="dateCreated datePublished" datetime="2020-12-20T10:13:48+08:00">2020-12-20</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/12/20/novelyishijie/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/20/novelyishijie/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近看完了这本各方面来说在轻小说界都小有名气的小说。简单说一下我的感想。<br>从各方面来说女权主义和反爽文特征都非常鲜明，甚至我怀疑作者最初的灵感来源就是为了恶心一下我们这些看着本子里面女性的高潮脸高潮的死宅。仿佛在告诉你，积极融入另一个世界，为了生存努力地活在当下的女性比你们这些只会看着异世界爽文自嗨的，把异世界擅自当作更为美好的世界，稍微遇到不符合自己心意的事情就只会耍脾气的男巨婴不知道要高到哪里去了。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/20/novelyishijie/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://frienkie.xyz/2020/12/06/galb/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -798,174 +962,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://frienkie.xyz/2020/10/11/qq/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="frienkie">
-      <meta itemprop="description" content="讨论自由！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="frienkie的记事本">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/11/qq/" class="post-title-link" itemprop="url">qq的替代方案</a>
-        </h2>
-
-        <div class="post-meta">
-	   
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-10-11 21:02:57" itemprop="dateCreated datePublished" datetime="2020-10-11T21:02:57+08:00">2020-10-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-12 17:28:24" itemprop="dateModified" datetime="2020-10-12T17:28:24+08:00">2020-10-12</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/10/11/qq/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/11/qq/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>我敢说，大部分人看到这个都会直接说：不就是Tim吗！<br>如果单是tim的话，我就成营销号了。<br>tim在电脑上确实好用，但是在手机上来说。。。。。<strong>不能发说说，不能用相册，更重要的是授权登录用不了，这是致命的缺点。</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/11/qq/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://frienkie.xyz/2020/10/09/rance10/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="frienkie">
-      <meta itemprop="description" content="讨论自由！">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="frienkie的记事本">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/09/rance10/" class="post-title-link" itemprop="url">一个从未玩过兰斯系列的半弃坑人士对于兰斯10的评价</a>
-        </h2>
-
-        <div class="post-meta">
-	   
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-10-09 23:31:17 / 修改时间：23:41:45" itemprop="dateCreated datePublished" datetime="2020-10-09T23:31:17+08:00">2020-10-09</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/10/09/rance10/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/09/rance10/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><del>如标题所说，该评价参考性极弱，姑妄听之。</del><br>dlsite最近针对中国市场动作频繁，著名系列作品兰斯也得到了官方汉化，让我实在有点担心这么浪会不会出事（其实并不会，因为还是被墙着）。当然点数问题仍然还是非常让人讨厌，不过最近办理了中国工商银行的星座卡校园版，由于是分卡制，一张visa一张银联，我也可以用它来绑定谷歌账户消费，而且没有年费，没有透支额度，相当省心。然后我一看，好家伙，5000日元，约等于<strong>人民币300多元</strong>，溜了溜了，玩盗版去了。我绝对绝对没有鼓励别人玩盗版的意思！</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/09/rance10/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1037,7 +1033,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
