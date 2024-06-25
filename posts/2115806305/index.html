@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+<meta name="referrer" content="no-referrer" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"frienkie.eu.org","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="回顾之前所说的对于下载资源的问题，我的结论是“磁力和云储存优势互补”。而磁力目前在国内难以推行的原因我认为是没有公网IP，运营商限制，迅雷导致的环境恶化，和网民网络知识普及程度不足。但是后来和台湾网友的交流后我才发现这都是次要的原因，根本还是在于资源下载本身的逐利性。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对台湾资源下载方式的思考">
+<meta property="og:url" content="http://frienkie.eu.org/posts/2115806305/index.html">
+<meta property="og:site_name" content="frienkie的记事本">
+<meta property="og:description" content="回顾之前所说的对于下载资源的问题，我的结论是“磁力和云储存优势互补”。而磁力目前在国内难以推行的原因我认为是没有公网IP，运营商限制，迅雷导致的环境恶化，和网民网络知识普及程度不足。但是后来和台湾网友的交流后我才发现这都是次要的原因，根本还是在于资源下载本身的逐利性。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-26T21:31:29.000Z">
+<meta property="article:modified_time" content="2024-06-25T11:57:25.204Z">
+<meta property="article:author" content="frienkie">
+<meta property="article:tag" content="资源">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://frienkie.eu.org/posts/2115806305/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>对台湾资源下载方式的思考 | frienkie的记事本</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="frienkie的记事本" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">frienkie的记事本</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">其实就是个记事本</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://frienkie.eu.org/posts/2115806305/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="frienkie">
+      <meta itemprop="description" content="讨论自由！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="frienkie的记事本">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          对台湾资源下载方式的思考
+        </h1>
+
+        <div class="post-meta">
+	   
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-05-26 21:31:29" itemprop="dateCreated datePublished" datetime="2022-05-26T21:31:29+00:00">2022-05-26</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/2115806305/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/2115806305/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>回顾之前所说的对于下载资源的问题，我的结论是“磁力和云储存优势互补”。而磁力目前在国内难以推行的原因我认为是没有公网IP，运营商限制，迅雷导致的环境恶化，和网民网络知识普及程度不足。<br>但是后来和台湾网友的交流后我才发现这都是次要的原因，根本还是在于资源下载本身的逐利性。</p>
+<a id="more"></a>
+<hr>
+<p>为什么这么说呢。因为台湾目前磁力的适用程度也不高，原因也是因为速度慢。<br>这是有点奇怪的事情，因为台湾比起中国的网络环境好太多了。除开GFW的影响，台湾的中华电信没有限制过BT下载，IP分配方式也是公网动态IP，也没有迅雷之类的东西来搅局，但磁力依然很少使用。<br>以台湾目前最繁荣的资源论坛伊莉来举例，版务要求的资源空间也是各类云盘，其中使用率最高的前三分别是：<br>1.mega。<br>2.Google drive。<br>3.zippyshare以及类似的看广告云盘。</p>
+<hr>
+<p>实际体验过之后，我发现关键在于台湾不存在网盘焦虑的问题，自然就无需考虑速度不稳定的磁力了。<br>具体体验如下：</p>
+<h5 id="1-mega配合mega-downloader配合各类VPN"><a href="#1-mega配合mega-downloader配合各类VPN" class="headerlink" title="1.mega配合mega downloader配合各类VPN"></a>1.mega配合mega downloader配合各类VPN</h5><p>mega的知名度不用多说，主要是介绍一下mega downloader：<br>官网（google blog形式）：<a target="_blank" rel="noopener" href="http://megadownloaderapp.blogspot.com/">http://megadownloaderapp.blogspot.com/</a><br>megadownloader是一个针对mega的多线程下载工具，可以跑满带宽，外加断线重连。<br>另外，mega对于速度的限制是每个IP每天5G，之后限速。<br>so，在台湾一个很普遍的做法就是mega+megadownloader+VPNgate（筑波大学公共VPN项目），跑满带宽，限速就换IP接着下载，基本没有速度焦虑的问题。<br>我也经常使用这种下载方式，外加我的廉价机场跑流量完全不是问题。用着确实很舒服，最大下载过50G的half——life alyx。唯一担心的就是把羊褥秃了。</p>
+<h5 id="2-jdownloader下载GD和各种看广告网盘"><a href="#2-jdownloader下载GD和各种看广告网盘" class="headerlink" title="2.jdownloader下载GD和各种看广告网盘"></a>2.jdownloader下载GD和各种看广告网盘</h5><p>官网：<a target="_blank" rel="noopener" href="https://jdownloader.org/">https://jdownloader.org/</a><br>jdownloader是一个和idm非常相似的软件，优势在于免费和对小众的看广告云盘的支持比较好，经过配置后复制链接即可下载而无需看广告和验证码，同时也可以对GD实现大文件断线重连。<br>说起GD就有一件让人无语的事情：GD是对下载有时间限制的，而且一个下载链接的有效时间很短，即使速度有3MB/s，在时间限制内也下载不到2G，然而GD对于上传文件又没有限制。。。<br>目前解决这个问题的方法就是在链接失效后手动获取新的链接继续下载，而支持这个操作的下载器有IDM和jdownloader。<br><em>参考：<a target="_blank" rel="noopener" href="https://zfly9.blogspot.com/2019/08/15-jdownloader-menu.html">https://zfly9.blogspot.com/2019/08/15-jdownloader-menu.html</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/143950267">https://zhuanlan.zhihu.com/p/143950267</a></em><br>当然GD本身是相当好用的，不用转存即可下载，并且没有限速。对于台湾来说大学提供的免费1T教育账号空间也完全够用了。</p>
+<hr>
+<p>那么再补充一下为何onedrive和百度云被弃用的原因。<br>onedrive：分享限制过于严格。<br>GD的分享流量过大之后会显示24小时后再下载，但onedrive则会直接报废此链接，甚至可能会冻结账号。另外，API没有hash值检验，上传大文件可能是错误的。<br>参考：<a target="_blank" rel="noopener" href="https://mos86.com/47136.html">https://mos86.com/47136.html</a><br><a target="_blank" rel="noopener" href="https://hostloc.com/thread-549689-1-1.html">https://hostloc.com/thread-549689-1-1.html</a><br>百度云被弃用的原因很简单，自2019年开始，百度云不允许非大陆IP下载。</p>
+<hr>
+<p>其实，基于一个2012年的统计，BT流量全世界排行，第一位是中国，第五位是台湾。在云盘服务或者说对象存储服务还没有大量推行的时候，BT是相当火爆的。而之后云盘迅速得到大量使用的原因，无外乎是使用门槛低，速度稳定。<br>资源下载本质上是一个逐利的过程，作为用户这一方想尽办法就是为了尽快把网络上的内容下载下来。而网盘对于用户来说是使用体验非常友好的东西，因为用户只会感受到光鲜的一面，而成本自然是资本家买单了。<br>所以，BT最大的问题也就在于，对于一个逐利的东西，却用乌托邦的理想来构建他。<br>我算是半个果黑，但也一直在用ipad，<del>以及长期褥apple music3个月的会员而在大陆和香港反复横跳</del>。我感受到的apple生态是一种强权逻辑，也就是不应该给用户过多的自由，而是严格遵守规则来保证所有人的使用体验。apple的生态和目前安卓的生态目前各有优劣，但我不得不承认对于一般人来说apple的使用体验是更好的。而BT也是同样的道理。<br><del>如果大陆可以使用mega和GD的话，我觉得不出几天也会改变限制，因为如此数量的白嫖大军没有哪个公司能够承受</del></p>
+<hr>
+<p>另外说到网民网络知识普及程度，我觉得之前过于夸大了这个问题。<br>取网民网络知识水平平均值，发达国家肯定是远远好于中国的，但这也并不代表台湾的大多数人都能完整理解BT的原理，他们也会觉得“速度慢，不好用”。同理虽然台湾相比于中国有更好的正版购买渠道，但是台湾依然不缺乏盗版的市场。这些方面作为人都是一样的会逐利，但也有程度之分。<br>虽然云盘目前以及未来很长一段时间都是绝对主流，但我认为家家拥有NAS会是一种可以预见的未来，BT的缓慢上升也是大势所趋。</p>
+<hr>
+<p>另外做一点补充，台湾一些人不使用BT还有一个原因是安全性。<br>类似<a target="_blank" rel="noopener" href="https://iknowwhatyoudownload.com/">我知道你下载了什么</a>这类网站可以通过DHT确定下载者的IP（虽然本来就是公开的）<br>另外，台湾已有因为BT下载而被版权代理方告上法庭的案件。<br>虽然版权代理方今年也由于敲诈而被检方告上法庭了。<br>参考：<a target="_blank" rel="noopener" href="https://tw.news.yahoo.com/%E8%AA%98%E6%8D%95%E7%B6%B2%E5%8F%8B%E8%BC%89%E7%89%87%E6%8F%90%E5%91%8A-8%E5%B9%B4%E6%B5%B7%E5%89%8A%E4%B8%8A%E5%8D%83%E8%90%AC-080807785.html">https://tw.news.yahoo.com/%E8%AA%98%E6%8D%95%E7%B6%B2%E5%8F%8B%E8%BC%89%E7%89%87%E6%8F%90%E5%91%8A-8%E5%B9%B4%E6%B5%B7%E5%89%8A%E4%B8%8A%E5%8D%83%E8%90%AC-080807785.html</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%B5%84%E6%BA%90/" rel="tag"># 资源</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/4071184129/" rel="prev" title="闲聊（和桂正和有点关系）">
+      <i class="fa fa-chevron-left"></i> 闲聊（和桂正和有点关系）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/2416475697/" rel="next" title="GFW绕过方法可用度现状探究">
+      GFW绕过方法可用度现状探究 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-mega%E9%85%8D%E5%90%88mega-downloader%E9%85%8D%E5%90%88%E5%90%84%E7%B1%BBVPN"><span class="nav-number">1.</span> <span class="nav-text">1.mega配合mega downloader配合各类VPN</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-jdownloader%E4%B8%8B%E8%BD%BDGD%E5%92%8C%E5%90%84%E7%A7%8D%E7%9C%8B%E5%B9%BF%E5%91%8A%E7%BD%91%E7%9B%98"><span class="nav-number">2.</span> <span class="nav-text">2.jdownloader下载GD和各种看广告网盘</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="frienkie"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">frienkie</p>
+  <div class="site-description" itemprop="description">讨论自由！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">96</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:frienkiely@outlook.com" title="E-Mail → mailto:frienkiely@outlook.com" rel="noopener" target="_blank"><i class="iconfont icon-email fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/frienkiely" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;frienkiely" rel="noopener" target="_blank"><i class="iconfont icon-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://help.frienkie.eu.org/" title="help → https:&#x2F;&#x2F;help.frienkie.eu.org" rel="noopener" target="_blank"><i class="iconfont icon-question fa-fw"></i>help</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://join.skype.com/Yp932LzxbRrI" title="Skype → https:&#x2F;&#x2F;join.skype.com&#x2F;Yp932LzxbRrI" rel="noopener" target="_blank"><i class="iconfont icon-skype-fill fa-fw"></i>Skype</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="iconfont icon-dingyue fa-fw"></i>RSS</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://curly-sky-d442.frienkiely.workers.dev/hpp/admin/dash/home" title="后端管理 → https:&#x2F;&#x2F;curly-sky-d442.frienkiely.workers.dev&#x2F;hpp&#x2F;admin&#x2F;dash&#x2F;home" rel="noopener" target="_blank"><i class="fas fa-mobile fa-fw"></i>后端管理</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://cn-bj1-kvlqs4ee.frp.cool:17772/" title="manga → http:&#x2F;&#x2F;cn-bj1-kvlqs4ee.frp.cool:17772&#x2F;" rel="noopener" target="_blank"><i class="iconfont icon-book fa-fw"></i>manga</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fas fa-align-left"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Powered by Hexo</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'xMKi6erb3VrP4Q0CUnBbd0e8-MdYXbMMI',
+      appKey     : 'wRFsdAGyUQUoB7NAFcT3VgXB',
+      placeholder: "Any comment is OK",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : 'https://server.frienkie.eu.org'
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>frienkie的记事本</title>
+    <link>http://frienkie.eu.org/</link>
+    
+    <image>
+      <url>http://frienkie.eu.org/icon.png</url>
+      <title>frienkie的记事本</title>
+      <link>http://frienkie.eu.org/</link>
+    </image>
+    
+    <atom:link href="http://frienkie.eu.org/atom.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>讨论自由！</description>
+    <pubDate>Tue, 25 Jun 2024 11:57:25 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>有关于泉和良的杂七杂八</title>
+      <link>http://frienkie.eu.org/posts/1304512511/</link>
+      <guid>http://frienkie.eu.org/posts/1304512511/</guid>
+      <pubDate>Tue, 25 Jun 2024 13:45:10 GMT</pubDate>
+      
+      <description>&lt;p&gt;泉和良这个名字，如果是稍微深入了解一下泷本的，应该略有耳闻。&lt;br&gt;1997年开始以アンディーメンテ的名义制作独立小游戏，后来参加讲谈社box流水新人赏出道。《我的空气》后记里面也提到当时泉和良和泷本的小说交流十分密切。&lt;br&gt;那么首先，讲谈社box系列肯定很陌生，但说到西尾的物语系列应该就熟悉了。其特点是单行本像字典一样由一个银色的纸盒装着，故名为box。时至今日，二手书店最容易买到的讲谈社box的作品也是物语系列，而其他的作品则很难找到。&lt;/p&gt;</description>
+      
+      
+      
+      
+      
+      <category domain="http://frienkie.eu.org/tags/%E5%B0%8F%E8%AF%B4/">小说</category>
+      
+      
+      <comments>http://frienkie.eu.org/posts/1304512511/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>锐评girls band cry的学历neta</title>
+      <link>http://frienkie.eu.org/posts/782142253/</link>
+      <guid>http://frienkie.eu.org/posts/782142253/</guid>
+      <pubDate>Sat, 01 Jun 2024 20:17:45 GMT</pubDate>
+      
+      <description>&lt;p&gt;最近在追girls band cry。几乎没有地方不提中专学历neta的。准确来说，每个评论区必有中专乐队的词条。&lt;br&gt;刷这个梗的心态我是完全能理解的，但是我更想提一下中国和日本关于学历教育的差别。&lt;/p&gt;</description>
+      
+      
+      
+      
+      
+      <category domain="http://frienkie.eu.org/tags/%E6%9D%82%E8%B0%88/">杂谈</category>
+      
+      
+      <comments>http://frienkie.eu.org/posts/782142253/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>藤田祥平的&lt;日本が中国に完敗した今、26歳の私が全てのオッサンに言いたいこと&gt;</title>
+      <link>http://frienkie.eu.org/posts/2219297579/</link>
+      <guid>http://frienkie.eu.org/posts/2219297579/</guid>
+      <pubDate>Tue, 14 May 2024 22:47:20 GMT</pubDate>
+      
+      <description>&lt;p&gt;继续讨论《青春和连环杀手》的余下一点东西。&lt;br&gt;我最先看的是由连载版翻译过来的前10章：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.douban.com/note/713789368/?_i=56972647e3MqNT&quot;&gt;https://www.douban.com/note/713789368/?_i=56972647e3MqNT&lt;/a&gt;&lt;/p&gt;</description>
+      
+      
+      
+      
+      
+      <category domain="http://frienkie.eu.org/tags/%E6%97%A5%E5%B8%B8/">日常</category>
+      
+      
+      <comments>http://frienkie.eu.org/posts/2219297579/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>《青春和连环杀手》和《超人计划infinity》与中年危机</title>
+      <link>http://frienkie.eu.org/posts/2974393929/</link>
+      <guid>http://frienkie.eu.org/posts/2974393929/</guid>
+      <pubDate>Sat, 27 Apr 2024 23:28:30 GMT</pubDate>
+      
+      <description>&lt;p&gt;昨天《超人计划infinity》完结了。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;先看《青春和连环杀手》的amazon3星评价：&lt;/p&gt;</description>
+      
+      
+      
+      
+      
+      <category domain="http://frienkie.eu.org/tags/%E5%B0%8F%E8%AF%B4/">小说</category>
+      
+      
+      <comments>http://frienkie.eu.org/posts/2974393929/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>vmware的虚拟化引擎（没有可用的虚拟化计数器）</title>
+      <link>http://frienkie.eu.org/posts/2516559559/</link>
+      <guid>http://frienkie.eu.org/posts/2516559559/</guid>
+      <pubDate>Sun, 21 Apr 2024 22:57:50 GMT</pubDate>
+      
+      <description>&lt;p&gt;作为正常人，应该都对虚拟机没有好感。&lt;br&gt;nds，psp，switch，hiperv，vmw的虚拟机怎么用都只有别扭的感觉。而且性能折扣还永远绕不开。&lt;br&gt;唯一好印象的虚拟机是parallels ，弥补了arm上有时候想玩win32小游戏而不得的遗憾。但是订阅制的印象就不太好了。&lt;br&gt;不曾想过某一天居然要在win11上运行ubantu这种最不爽的组合。&lt;/p&gt;</description>
+      
+      
+      
+      
+      
+      <category domain="http://frienkie.eu.org/tags/%E6%8A%80%E6%9C%AF/">技术</category>
+      
+      
+      <comments>http://frienkie.eu.org/posts/2516559559/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>速易卡esim兼容性的阐明</title>
+      <link>http://frienkie.eu.org/posts/1207440631/</link>
+      <guid>http://frienkie.eu.org/posts/1207440631/</guid>
+      <pubDate>Sat, 16 Mar 2024 20:45:13 GMT</pubDate>
+      
+      <description>&lt;p&gt;之前的openeuicc谜之兼容性问题终于有了答案。具体参考：&lt;br&gt;&lt;a href=&quot;https://www.v2ex.com/t/1013989&quot;&gt;https://www.v2ex.com/t/1013989&lt;/a&gt;&lt;br&gt;没想到，高通基带锁的校验居然成为了无法实现的最终原因。我的一加最终还是失败了。&lt;br&gt;不过如果想要搏一搏，认为自己是早期型号，没有校验的话，请按照一下方案修改基带 firmware 中的 AID：&lt;/p&gt;</description>
+      
+      
+      
+      
+      
+      <category domain="http://frienkie.eu.org/tags/%E6%8A%80%E6%9C%AF/">技术</category>
+      
+      
+      <comments>http://frienkie.eu.org/posts/1207440631/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Rebuild of NHK chapter 5</title>
+      <link>http://frienkie.eu.org/posts/3989795158/</link>
+      <guid>http://frienkie.eu.org/posts/3989795158/</guid>
+      <pubDate>Tue, 05 Mar 2024 22:06:21 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;NHK新小说《新.欢迎加入NHK》第五章（即Rebuild of Welcome To the NHK chapter 5）英文电子版今日发售。&lt;br&gt;&lt;img</description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="http://frienkie.eu.org/tags/%E8%B5%84%E6%BA%90/">资源</category>
+      
+      
+      <comments>http://frienkie.eu.org/posts/3989795158/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>quest3</title>
+      <link>http://frienkie.eu.org/posts/3997310116/</link>
+      <guid>http://frienkie.eu.org/posts/3997310116/</guid>
+      <pubDate>Sat, 13 Jan 2024 20:32:46 GMT</pubDate>
+      
+      <description>&lt;p&gt;把买了很久的quest3做个总结吧。&lt;/p&gt;</description>
+      
+      
+      
+      
+      
+      <category domain="http://frienkie.eu.org/tags/%E6%8A%80%E6%9C%AF/">技术</category>
+      
+      
+      <comments>http://frienkie.eu.org/posts/3997310116/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>世界的格差</title>
+      <link>http://frienkie.eu.org/posts/3624262744/</link>
+      <guid>http://frienkie.eu.org/posts/3624262744/</guid>
+      <pubDate>Sun, 07 Jan 2024 23:05:00 GMT</pubDate>
+      
+      <description>&lt;p&gt;虽然突然谈这么大的话题貌似不太好，但最近是有感而发。&lt;br&gt;格差作为典型的日语词汇，用在中文里面却非常契合。&lt;br&gt;我想提一下几年前有点名的视觉小说《白昼梦的青写真》&lt;/p&gt;</description>
+      
+      
+      
+      
+      
+      <category domain="http://frienkie.eu.org/tags/%E6%97%A5%E5%B8%B8/">日常</category>
+      
+      
+      <comments>http://frienkie.eu.org/posts/3624262744/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>对アリスNET的考察</title>
+      <link>http://frienkie.eu.org/posts/2293047075/</link>
+      <guid>http://frienkie.eu.org/posts/2293047075/</guid>
+      <pubDate>Wed, 29 Nov 2023 22:57:50 GMT</pubDate>
+      
+      <description>&lt;p&gt;Alice-net是神户三宫plaza的一家视觉小说专卖店，也是兵库県唯一の専門店です。&lt;/p&gt;
+&lt;p&gt;三宮plazaはちょっと有名なオタク文化に回っての聖地だ。マイナス一階は伝統的な飲食店と高い蘭州ラーメン店とメロンブックスであり、二階はこのアリスーネトと駿河屋とアニメイトであり、三階は。。。三階はマッサージと占いの店と中古店だろうかな？&lt;/p&gt;</description>
+      
+      
+      
+      
+      
+      <category domain="http://frienkie.eu.org/tags/%E6%97%A5%E5%B8%B8/">日常</category>
+      
+      
+      <comments>http://frienkie.eu.org/posts/2293047075/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>一些杂七杂八的事情</title>
+      <link>http://frienkie.eu.org/posts/1196985393/</link>
+      <guid>http://frienkie.eu.org/posts/1196985393/</guid>
+      <pubDate>Thu, 31 Aug 2023 14:03:32 GMT</pubDate>
+      
+      <description>&lt;p&gt;有一些值得一提的小事情想要说一下。&lt;/p&gt;
+&lt;h6 id=&quot;1-Revanced-youtube卡在1分左右的原因&quot;&gt;&lt;a href=&quot;#1-Revanced-youtube卡在1分左右的原因&quot; class=&quot;headerlink&quot; title=&quot;1.Revanced youtube卡在1分左右的原因&quot;&gt;&lt;/a&gt;1.Revanced youtube卡在1分左右的原因&lt;/h6&gt;&lt;p&gt;Revanced目前通过打包修改youtube官方app的方式实现。不过我是直接安装的magisk模块：&lt;br&gt;&lt;a href=&quot;https://github.com/MatadorProBr/revanced-extended-magisk-module&quot;&gt;https://github.com/MatadorProBr/revanced-extended-magisk-module&lt;/a&gt;&lt;br&gt;最近经常遇到的问题是观看视频卡在1分左右不动，并且网络一切正常。更神奇的是这种情况只在安卓端出现，youtube的ios修改客户端和网页都没问题。&lt;br&gt;后来我查照到了这篇中提到的问题：&lt;/p&gt;</description>
+      
+      
+      
+      
+      
+      <category domain="http://frienkie.eu.org/tags/%E8%B5%84%E6%BA%90/">资源</category>
+      
+      
+      <comments>http://frienkie.eu.org/posts/1196985393/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>网站3周年纪念和讨论：为何几乎全部是女性？</title>
+      <link>http://frienkie.eu.org/posts/1880980739/</link>
+      <guid>http://frienkie.eu.org/posts/1880980739/</guid>
+      <pubDate>Wed, 23 Aug 2023 22:57:50 GMT</pubDate>
+      
+      <description>&lt;p&gt;建站3周年多，感觉时间过得很快。当然由于其他事情，将近1年时间blog的内容几乎没有怎么更新，也几乎没有写过长文了。因为没有接入谷歌，访问量少得可怜，所以也没有3周年纪念的必要。&lt;br&gt;当然，由于政治一点也不有趣，这一年也没有写过政治tag的文章了。&lt;br&gt;不过今天突然想要讨论一下之前思考的问题：&lt;strong&gt;为何几乎全部是女性？&lt;/strong&gt;&lt;/p&gt;</description>
+      
+      
+      
+      
+      
+      <category domain="http://frienkie.eu.org/tags/%E6%94%BF%E7%AD%96/">政策</category>
+      
+      
+      <comments>http://frienkie.eu.org/posts/1880980739/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Rebuild of NHK chapter 4</title>
+      <link>http://frienkie.eu.org/posts/2596815296/</link>
+      <guid>http://frienkie.eu.org/posts/2596815296/</guid>
+      <pubDate>Tue, 22 Aug 2023 21:43:30 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;NHK新小说《新.欢迎加入NHK》第四章（即Rebuild of Welcome To the NHK chapter 4）英文电子版今日发售。&lt;br&gt;&lt;img</description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="http://frienkie.eu.org/tags/%E8%B5%84%E6%BA%90/">资源</category>
+      
+      
+      <comments>http://frienkie.eu.org/posts/2596815296/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>让普通手机支持esim的方法（基于速易卡科技对esim.me进行平替）</title>
+      <link>http://frienkie.eu.org/posts/2816769116/</link>
+      <guid>http://frienkie.eu.org/posts/2816769116/</guid>
+      <pubDate>Fri, 04 Aug 2023 09:45:53 GMT</pubDate>
+      
+      <description>&lt;p&gt;最近，有一篇很有名的文章吸引了我这种一加7pro想要再用4年的人。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://sparktour.me/2022/11/20/configure-esim-me-card-with-pc-sc-reader/&quot;&gt;通过PC/SC智能卡读卡器配置esim.me的SIM卡 | Sparktour’s&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这篇文章介绍了如何对esim.me的卡以一种廉价的方式写入esim数据。&lt;/p&gt;
+&lt;p&gt;虽然esim.me的卡经过了一次小团体开车，但是邮费加起来怎么都无法接受了。&lt;/p&gt;
+&lt;p&gt;他の方法があるのでしょうか？実はホントにあるよね。&lt;/p&gt;</description>
+      
+      
+      
+      
+      
+      <category domain="http://frienkie.eu.org/tags/%E6%8A%80%E6%9C%AF/">技术</category>
+      
+      
+      <comments>http://frienkie.eu.org/posts/2816769116/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>docker版clash在yacd页面更新订阅（模板规则使用ACL4SSR）</title>
+      <link>http://frienkie.eu.org/posts/421134133/</link>
+      <guid>http://frienkie.eu.org/posts/421134133/</guid>
+      <pubDate>Thu, 15 Jun 2023 10:28:50 GMT</pubDate>
+      
+      <description>&lt;p&gt;最近借用了一个稳定的机场，于是想要在家中nas正式使用docker版本clash，其他设备直接使用HTTP代理。&lt;br&gt;参考：&lt;a href=&quot;https://fugary.com/?p=363&quot;&gt;https://fugary.com/?p=363&lt;/a&gt;&lt;br&gt;说到docker版本的clash，目前唯一的UI界面自然就是&lt;strong&gt;yacd&lt;/strong&gt;了。但是yacd相比CFW这类下载量最大的UI界面而言，最大的不同就是无法使用订阅链接更新。这是个很大的麻烦，尤其是很多小机场配置文件的Rule非常简略，我现在都用在线订阅转换工具来转换订阅后使用。&lt;/p&gt;</description>
+      
+      
+      
+      
+      
+      <category domain="http://frienkie.eu.org/tags/%E6%8A%80%E6%9C%AF/">技术</category>
+      
+      
+      <comments>http://frienkie.eu.org/posts/421134133/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>时隔一年重新锐评俄乌战争</title>
+      <link>http://frienkie.eu.org/posts/1881670467/</link>
+      <guid>http://frienkie.eu.org/posts/1881670467/</guid>
+      <pubDate>Wed, 17 May 2023 11:53:55 GMT</pubDate>
+      
+      <description>&lt;p&gt;时隔一年，又来锐评了。当事情不如你所预料的方向发展时，至少你应该意识到肯定有一些东西是你没有了解的。又知人不可能所有事情都了解，所以什么都去锐评，迟早翻车。故可得，锐评得越多，越容易翻车。&lt;/p&gt;
+&lt;p&gt;说到底，都到现在了，还有什么值得锐评的呢？&lt;/p&gt;</description>
+      
+      
+      
+      
+      
+      <category domain="http://frienkie.eu.org/tags/%E6%94%BF%E7%AD%96/">政策</category>
+      
+      
+      <comments>http://frienkie.eu.org/posts/1881670467/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>探讨一下何为“职业素养”</title>
+      <link>http://frienkie.eu.org/posts/3130463263/</link>
+      <guid>http://frienkie.eu.org/posts/3130463263/</guid>
+      <pubDate>Sat, 11 Mar 2023 22:47:48 GMT</pubDate>
+      
+      <description>&lt;p&gt;&lt;del&gt;原谅我最近什么都不写，因为完全不想写&lt;/del&gt;&lt;br&gt;最近看了落落Raku的采访视频，深感其职业素养真的非常到位。&lt;/p&gt;</description>
+      
+      
+      
+      
+      
+      <category domain="http://frienkie.eu.org/tags/%E6%97%A5%E5%B8%B8/">日常</category>
+      
+      
+      <comments>http://frienkie.eu.org/posts/3130463263/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>frienkie的漫画站点上线</title>
+      <link>http://frienkie.eu.org/posts/3577431962/</link>
+      <guid>http://frienkie.eu.org/posts/3577431962/</guid>
+      <pubDate>Fri, 24 Feb 2023 11:23:45 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;用nas把与自己有关的漫画归档整理了一下并穿透到外网了。自家用的是移动千兆，所以肯定无法支持巨大的访问量，但是就目前的访问量而言完全是自己多虑了。&lt;br&gt;访问链接：&lt;br&gt;&lt;a</description>
+          
+        
+      
+      
+      
+      
+      
+      
+      <comments>http://frienkie.eu.org/posts/3577431962/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Rebuild of NHK chapter 3</title>
+      <link>http://frienkie.eu.org/posts/78435427/</link>
+      <guid>http://frienkie.eu.org/posts/78435427/</guid>
+      <pubDate>Wed, 30 Nov 2022 20:48:55 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;NHK新小说《新.欢迎加入NHK》第三章（即Rebuild of Welcome To the NHK chapter 3）英文电子版今日发售。&lt;br&gt;&lt;img src=&quot;https://d2so3kg3ye9d14.cloudfront.net/nhk3&quot;</description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="http://frienkie.eu.org/tags/%E8%B5%84%E6%BA%90/">资源</category>
+      
+      
+      <comments>http://frienkie.eu.org/posts/78435427/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>《匿名的她們》第一话汉化发布</title>
+      <link>http://frienkie.eu.org/posts/517105274/</link>
+      <guid>http://frienkie.eu.org/posts/517105274/</guid>
+      <pubDate>Fri, 07 Oct 2022 22:56:34 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description>&lt;p&gt;《匿名的她們》第一话汉化已完成。如有问题，欢迎反馈。&lt;/p&gt;
+&lt;h4 id=&quot;下载-zip格式-：&quot;&gt;&lt;a href=&quot;#下载-zip格式-：&quot; class=&quot;headerlink&quot; title=&quot;下载(zip格式)：&quot;&gt;&lt;/a&gt;下载(zip格式)：&lt;/h4&gt;&lt;p&gt;&lt;a</description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="http://frienkie.eu.org/tags/%E8%B5%84%E6%BA%90/">资源</category>
+      
+      
+      <comments>http://frienkie.eu.org/posts/517105274/#disqus_thread</comments>
+      
+    </item>
+    
+  </channel>
+</rss>
