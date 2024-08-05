@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+<meta name="referrer" content="no-referrer" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"frienkie.eu.org","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="sni阻断是一种GFW封锁方式之一。（也就是和404相似的error connect reset）部分知名网址比如steam社区和pixiv和twitch就可以修改sni信息来突破这类封锁，即经常所说的“域名前置”。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GFW绕过方法可用度现状探究">
+<meta property="og:url" content="http://frienkie.eu.org/posts/2416475697/index.html">
+<meta property="og:site_name" content="frienkie的记事本">
+<meta property="og:description" content="sni阻断是一种GFW封锁方式之一。（也就是和404相似的error connect reset）部分知名网址比如steam社区和pixiv和twitch就可以修改sni信息来突破这类封锁，即经常所说的“域名前置”。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-31T19:46:35.000Z">
+<meta property="article:modified_time" content="2024-08-05T14:44:45.381Z">
+<meta property="article:author" content="frienkie">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://frienkie.eu.org/posts/2416475697/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>GFW绕过方法可用度现状探究 | frienkie的记事本</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="frienkie的记事本" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">frienkie的记事本</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">其实就是个记事本</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://frienkie.eu.org/posts/2416475697/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="frienkie">
+      <meta itemprop="description" content="讨论自由！">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="frienkie的记事本">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          GFW绕过方法可用度现状探究
+        </h1>
+
+        <div class="post-meta">
+	   
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-05-31 19:46:35" itemprop="dateCreated datePublished" datetime="2022-05-31T19:46:35+00:00">2022-05-31</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/2416475697/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/2416475697/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>sni阻断是一种GFW封锁方式之一。（也就是和404相似的error connect reset）<br>部分知名网址比如steam社区和pixiv和twitch就可以修改sni信息来突破这类封锁，即经常所说的“<strong>域名前置</strong>”。</p>
+<a id="more"></a>
+<p>有关这方面的内容我认为不必细说，因为早就被许多个人博客解析过了。有关sni阻断绕过方法写的最详细的文章我认为是这一篇：<br><a target="_blank" rel="noopener" href="https://nicebowl.fun/24#top">https://nicebowl.fun/24#top</a><br>欢迎各位仔细阅读一下。</p>
+<p>由于这种方法只在本地运行而无需代理服务器，因而常常集成到某些软件中。最有名的安卓端Ehviewer和pixEz即集成了域名前置程序到app中。<br>而在windows端，最近比较有名的Watt Toolkit（原名steam++）则是集成了多个目前可以用域名前置访问的网址的本地反代工具。（其实主要还是页面UI比较舒服）<br>官网：<a target="_blank" rel="noopener" href="https://steampp.net/">https://steampp.net/</a></p>
+<hr>
+<p>最近突发奇想想要在手机上拓展一些访问能力，先是安装了fcm hosts magisk模块，又安装了方便管理hosts文件的<strong>Adaway</strong>。fcm的效果还可以，<del>虽然不安也能收到推送</del>，但是通过修改hosts尝试不翻墙直接访问dlsite发现完全不行，左思右想发现单纯改hosts就可访问的网址基本上已经所剩无几了。<br>就在这时，我发现了这篇：<br><a target="_blank" rel="noopener" href="https://altonhe.github.io/2020/04/08/zai-shou-ji-shang-fang-wen-discord-he-pixiv-de-zheng-que-zi-shi/">click here</a><br>这篇大致讲了一下通过安装magisk模块来建立本地反代服务器访问sni阻断的网站。<br>看起来很有诱惑力对吧？<br>可惜<strong>域名前置并非通用的，而是需要对不同的网站设置不同的sni修改规则</strong>。而这个模块只做了三个网址，steamcommunity，pixiv，discord。<br>其中discord由于2020年完全被IP封锁，已经失效了，而pixiv早就有软件也不缺这一个，steamcommunity的讨论区最近也封锁了大陆IP，并且我想一般人也不会想要在手机上访问社区的。然后我尝试直接使用pixiv app，发现由于未知原因也无法打开。也就是说，这个反代只能在浏览器内运行，很无语。<br>由于这个作者已经开摆了，想要让他添加twitch和维基的支持貌似也不大可能了。单纯就是觉得有点可惜。</p>
+<hr>
+<p>西厢计划是最早反抗GFW的行动。和目前的代理服务器原理不同的是，西厢计划是通过欺骗GFW规则来实现访问。这种方式早期效果较好，可惜随着GFW的不断完善，西厢计划最终被放弃了。<br>而西厢计划的精神续作TCPioneer至今依然还在，并且很可贵的是还有人在为这种吃力不讨好的方式更新配置。<br>请注意这种方法并没有改变sni信息,但也需要对不同网站针对性采用不同策略。并且GFW一旦修改，规则也需要随之变化。<br>目前比较完善的TCPioneer配置是这个：<br><a target="_blank" rel="noopener" href="https://github.com/850710247liu/TCPioneer">https://github.com/850710247liu/TCPioneer</a><br>通过这个项目目前实现的效果如下：<br>谷歌：能连接上的可能性为50%，初次访问速度较慢。<br>youtube：基本无法加载页面。<br>discord：无法使用。<br>tg：基本无法加载页面。<br>niconico:速度很快。<br>维基：速度很快。<br>推特：速度很快，初始图片加载较慢，寻找cdn时间较长，但之后就变好了。<br>mega：访问失败。<br>github：速度很快。</p>
+<hr>
+<p>总之，目前绕过GFW绝对不是一个非常好的选择了，除了推特有点诱惑力之外，其他的功能已经有更好的工具集成了。<br>虽然这已经算是一种被淘汰的方案。但有时用来应急其实还是不错的。</p>
+<hr>
+<p>补充：如果magisk安装后依然无法修改system文件夹中的hosts文件，去recovery中挂载system文件夹即可。</p>
+<hr>
+<p>6月4日补充：收回原来的话。TCPioneer在今天访问谷歌的速度居然非常之快，令人乍舌。看来这个项目还是很有前景的。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"># 技术</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/2115806305/" rel="prev" title="对台湾资源下载方式的思考">
+      <i class="fa fa-chevron-left"></i> 对台湾资源下载方式的思考
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/2810313935/" rel="next" title="信用卡BIN码及其限制详解（对海淘支付方式的探索，图床选择的建议）">
+      信用卡BIN码及其限制详解（对海淘支付方式的探索，图床选择的建议） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="frienkie"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">frienkie</p>
+  <div class="site-description" itemprop="description">讨论自由！</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:frienkiely@outlook.com" title="E-Mail → mailto:frienkiely@outlook.com" rel="noopener" target="_blank"><i class="iconfont icon-email fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/frienkiely" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;frienkiely" rel="noopener" target="_blank"><i class="iconfont icon-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://help.frienkie.eu.org/" title="help → https:&#x2F;&#x2F;help.frienkie.eu.org" rel="noopener" target="_blank"><i class="iconfont icon-question fa-fw"></i>help</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://join.skype.com/Yp932LzxbRrI" title="Skype → https:&#x2F;&#x2F;join.skype.com&#x2F;Yp932LzxbRrI" rel="noopener" target="_blank"><i class="iconfont icon-skype-fill fa-fw"></i>Skype</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="iconfont icon-dingyue fa-fw"></i>RSS</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://curly-sky-d442.frienkiely.workers.dev/hpp/admin/dash/home" title="后端管理 → https:&#x2F;&#x2F;curly-sky-d442.frienkiely.workers.dev&#x2F;hpp&#x2F;admin&#x2F;dash&#x2F;home" rel="noopener" target="_blank"><i class="fas fa-mobile fa-fw"></i>后端管理</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://cn-bj1-kvlqs4ee.frp.cool:17772/" title="manga → http:&#x2F;&#x2F;cn-bj1-kvlqs4ee.frp.cool:17772&#x2F;" rel="noopener" target="_blank"><i class="iconfont icon-book fa-fw"></i>manga</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fas fa-align-left"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Powered by Hexo</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'xMKi6erb3VrP4Q0CUnBbd0e8-MdYXbMMI',
+      appKey     : 'wRFsdAGyUQUoB7NAFcT3VgXB',
+      placeholder: "Any comment is OK",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : 'https://server.frienkie.eu.org'
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
