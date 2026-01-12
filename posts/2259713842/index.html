@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"frienkie.eu.org","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="我最近在寻找新的代理软件。众所周知，v2rayN在上半年的版本更新中加入了路由规则并且移除了pac模式，并且因此引起了很多人的不满，主要原因是不习惯。但其实v2ray-core早就更新了routing路由作为更先进的过滤方式，pac相对于已经过时了，确实需要配合其改变。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="有关亲民代理软件Winxray的一切">
+<meta property="og:url" content="http://frienkie.eu.org/posts/2259713842/index.html">
+<meta property="og:site_name" content="frienkie的记事本">
+<meta property="og:description" content="我最近在寻找新的代理软件。众所周知，v2rayN在上半年的版本更新中加入了路由规则并且移除了pac模式，并且因此引起了很多人的不满，主要原因是不习惯。但其实v2ray-core早就更新了routing路由作为更先进的过滤方式，pac相对于已经过时了，确实需要配合其改变。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://frienkie.s3.ap-northeast-1.amazonaws.com/frienkie_picture-master/asdasd.PNG">
+<meta property="article:published_time" content="2021-12-21T11:57:44.000Z">
+<meta property="article:modified_time" content="2026-01-12T16:34:22.542Z">
+<meta property="article:author" content="frienkie">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://frienkie.s3.ap-northeast-1.amazonaws.com/frienkie_picture-master/asdasd.PNG">
+
+
+<link rel="canonical" href="http://frienkie.eu.org/posts/2259713842/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://frienkie.eu.org/posts/2259713842/","path":"posts/2259713842/","title":"有关亲民代理软件Winxray的一切"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>有关亲民代理软件Winxray的一切 | frienkie的记事本</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://comment.frienkie.eu.org/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="frienkie的记事本" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">frienkie的记事本</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">其实就是个记事本</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="frienkie"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">frienkie</p>
+  <div class="site-description" itemprop="description">讨论自由！</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">107</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:frienkiely@outlook.com" title="E-Mail → mailto:frienkiely@outlook.com" rel="noopener me" target="_blank"><i class="iconfont icon-email fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/frienkiely" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;frienkiely" rel="noopener me" target="_blank"><i class="iconfont icon-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://help.frienkie.eu.org/" title="help → https:&#x2F;&#x2F;help.frienkie.eu.org" rel="noopener me" target="_blank"><i class="iconfont icon-question fa-fw"></i>help</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://join.skype.com/Yp932LzxbRrI" title="Skype → https:&#x2F;&#x2F;join.skype.com&#x2F;Yp932LzxbRrI" rel="noopener me" target="_blank"><i class="iconfont icon-skype-fill fa-fw"></i>Skype</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="iconfont icon-dingyue fa-fw"></i>RSS</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://db.frienkie.eu.org/" title="Dashboard → https:&#x2F;&#x2F;db.frienkie.eu.org" rel="noopener me" target="_blank"><i class="fas fa-mobile fa-fw"></i>Dashboard</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://frienkie.eu.org/posts/2259713842/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="frienkie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="frienkie的记事本">
+      <meta itemprop="description" content="讨论自由！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="有关亲民代理软件Winxray的一切 | frienkie的记事本">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          有关亲民代理软件Winxray的一切
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-12-21 11:57:44" itemprop="dateCreated datePublished" datetime="2021-12-21T11:57:44+00:00">2021-12-21</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/posts/2259713842/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/posts/2259713842/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>我最近在寻找新的代理软件。<br>众所周知，v2rayN在上半年的版本更新中加入了路由规则并且移除了pac模式，并且因此引起了很多人的不满，主要原因是不习惯。但其实v2ray-core早就更新了routing路由作为更先进的过滤方式，pac相对于已经过时了，确实需要配合其改变。</p>
+<span id="more"></span>
+<p>pac模式作为一种最简单的gfwlist白名单过滤的方式，优点和缺点都相当突出：编辑规则最为简单容易理解，但难以满足复杂的网络自定义要求。<br>pac模式肯定是有存在的价值的，作为一种最简单容易理解的规则，更适合大多数人使用，况且现在的路由规则编辑方式完全没有做到易于理解和上手，对不了解编程的人可比pac复杂多了。虽然clash可以直接订阅规则，但不同的人的使用需求以及具体情况肯定是不同的，这时候想改规则，一看修改起来如此复杂，很多人就放弃了。<br>另外还有从鲁棒性的角度出发，对现在而言明显是pac模式鲁棒性更强，遇到连接失败更容易排查出问题。<br>不过老版本接着用pac就行，这其实不算什么理由。主要还是v2rayN完全没有对触屏做过任何优化，在surface上的使用体验欠佳。<br>首先我考虑的是Qv2ray和clash。但是呢，我还是觉得其一页面弄得挺复杂不太好找，其二对于触屏的优化也算不上到位，当然也没有pac。<br><strong>so我找到了较受好评的winxray。</strong><br>winxray是使用xray-core的代理程序。要说xray和v2ray的区别的话，我觉得是没有区别www。<br>使用winxray之后，我觉得它最大的特点就是亲民。原因如下；<br><strong>1.整体和v2rayN相似，容易上手。<br>2.设置功能较少，使用简单。<br>3.pac的自定义修改做到了傻瓜式，同时支持pac的更新。<br>4.工具栏对普通人而言非常实用，甚至对于在vps上部署winxray都是傻瓜式的。<br><img src="https://frienkie.s3.ap-northeast-1.amazonaws.com/frienkie_picture-master/asdasd.PNG" width=500 /><br>说实话这些工具每个都很有分量，几乎覆盖了一般人会遇到的所有问题，这也是它亲民特征的体现。<br>5.几乎所有代理软件的订阅都可以直接使用。</strong><br>对于触屏而言，它最大的优势在于每个按键空间足够宽敞，并且终于可以双击切换服务器了。<br>不过我在使用过程中遇到了一个问题，就是莫名出现所有服务器连接失败然后卡死的现象。后来更新了x-raycore之后没有出现了，不清楚具体原因。</p>
+<hr>
+<p>和这个软件的亲民相对应的是，软件的开发者和借此盈利者的破事。<br>谷歌搜索winxray排名第一是winxray的官网和仓库，不过很明显的是，它的官网也就是<a target="_blank" rel="noopener" href="https://www.winxray.com/">https://www.winxray.com</a><br>和其仓库<br><a target="_blank" rel="noopener" href="https://github.com/TheMRLL/winxray">https://github.com/TheMRLL/winxray</a><br>是假冒的。<br>由于开源加上使用aardio开发，导致修改相对简单，被TheMRLL加上了推广的广告盈利。版本号时间对不上，commits也是伪造的。<br>现在github上还有很多fork的仓库，版本不一，说明文件也不完全一致，但都指向一个叫做winXray的user，开发者应该是他。（现在此用户已不存在）<br>通过fork查找到的最新版本是3.7：<br><a target="_blank" rel="noopener" href="https://github.com/hans822418/winXray-3.7">https://github.com/hans822418/winXray-3.7</a><br>所以说，开发者为何删库跑路呢？<br>通过上面的仓库的说法：<br><strong>最终都要删库跑路的原因大家都懂不用我多说了吧？！ 我删库特别快，是因为我写代码的速度快，我用了几小时就完成了 winXray 的主要代码，用了几天升级就迅速达到了一般其他软件写了几年的成熟度！因为我即将删库，但是我推上去的更新 - fork 的项目基本都没有那么迅速的主动拉更新，大家可以看一下 winXray 上线才短短几天就超过了 600 forks, 所以如果我推送更新之前不删库，那么我删库以后就没有人能找到最新版本的源代码。</strong><br><strong>本来 winXray 源码已放弃版权贡献到公共域，但是有人（TheMRLL ）把源码拿去拖了个又大又丑的推广按钮上去，什么功能也不加就发布新版自称官方，而且还把源码搞得很乱出了问题的对本作者进行诋毁（ 错误信息都看不懂居然自称开源软件官方 ），对提及原版 winXray 的帖子进行封删和威胁，我真是惊到了世上居然有如此无耻之人，本来就是给你自由发挥的，吃相这么难看良心不会痛吗？！。</strong><br>好吧，我还是不知道删库的原因，因为作为学过语文的人，这里面首先否定句式就不对，其次就算更新快，别人不会自己star一下来fork新项目吗。在我的认知中删库只有两种可能，要么不想开源了，要么被叫去喝茶了。如果有人能理解的话，麻烦告诉我一下。<br>总之结果就是，冒牌者赢了，目前获得了最多的star数和fork数，有几个像我一样的博客也公然介绍这个冒牌的网站。<br>这年头哪个圈子不出点破事才奇怪呢。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"># 技术</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/218702334/" rel="prev" title="对作为作家的泷本龙彦的自己的总结">
+                  <i class="fa fa-angle-left"></i> 对作为作家的泷本龙彦的自己的总结
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/1595177204/" rel="next" title="对电丸科技的评价">
+                  对电丸科技的评价 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fas fa-align-left"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Powered by Hexo</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.frienkie.eu.org/","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"Any comment is OK","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/posts/2259713842/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>

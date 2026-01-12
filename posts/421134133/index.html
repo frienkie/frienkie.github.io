@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"frienkie.eu.org","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="最近借用了一个稳定的机场，于是想要在家中nas正式使用docker版本clash，其他设备直接使用HTTP代理。参考：https:&#x2F;&#x2F;fugary.com&#x2F;?p&#x3D;363说到docker版本的clash，目前唯一的UI界面自然就是yacd了。但是yacd相比CFW这类下载量最大的UI界面而言，最大的不同就是无法使用订阅链接更新。这是个很大的麻烦，尤其是很多小机场配置文件的Rule非常简略，我现在都用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker版clash在yacd页面更新订阅（模板规则使用ACL4SSR）">
+<meta property="og:url" content="http://frienkie.eu.org/posts/421134133/index.html">
+<meta property="og:site_name" content="frienkie的记事本">
+<meta property="og:description" content="最近借用了一个稳定的机场，于是想要在家中nas正式使用docker版本clash，其他设备直接使用HTTP代理。参考：https:&#x2F;&#x2F;fugary.com&#x2F;?p&#x3D;363说到docker版本的clash，目前唯一的UI界面自然就是yacd了。但是yacd相比CFW这类下载量最大的UI界面而言，最大的不同就是无法使用订阅链接更新。这是个很大的麻烦，尤其是很多小机场配置文件的Rule非常简略，我现在都用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://frienkie.s3.ap-northeast-1.amazonaws.com/img/yacd.PNG">
+<meta property="article:published_time" content="2023-06-15T10:28:50.000Z">
+<meta property="article:modified_time" content="2026-01-12T16:34:22.538Z">
+<meta property="article:author" content="frienkie">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://frienkie.s3.ap-northeast-1.amazonaws.com/img/yacd.PNG">
+
+
+<link rel="canonical" href="http://frienkie.eu.org/posts/421134133/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://frienkie.eu.org/posts/421134133/","path":"posts/421134133/","title":"docker版clash在yacd页面更新订阅（模板规则使用ACL4SSR）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>docker版clash在yacd页面更新订阅（模板规则使用ACL4SSR） | frienkie的记事本</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://comment.frienkie.eu.org/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="frienkie的记事本" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">frienkie的记事本</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">其实就是个记事本</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">其他需要注意的地方：</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="frienkie"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">frienkie</p>
+  <div class="site-description" itemprop="description">讨论自由！</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">107</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:frienkiely@outlook.com" title="E-Mail → mailto:frienkiely@outlook.com" rel="noopener me" target="_blank"><i class="iconfont icon-email fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/frienkiely" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;frienkiely" rel="noopener me" target="_blank"><i class="iconfont icon-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://help.frienkie.eu.org/" title="help → https:&#x2F;&#x2F;help.frienkie.eu.org" rel="noopener me" target="_blank"><i class="iconfont icon-question fa-fw"></i>help</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://join.skype.com/Yp932LzxbRrI" title="Skype → https:&#x2F;&#x2F;join.skype.com&#x2F;Yp932LzxbRrI" rel="noopener me" target="_blank"><i class="iconfont icon-skype-fill fa-fw"></i>Skype</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="iconfont icon-dingyue fa-fw"></i>RSS</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://db.frienkie.eu.org/" title="Dashboard → https:&#x2F;&#x2F;db.frienkie.eu.org" rel="noopener me" target="_blank"><i class="fas fa-mobile fa-fw"></i>Dashboard</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://frienkie.eu.org/posts/421134133/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="frienkie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="frienkie的记事本">
+      <meta itemprop="description" content="讨论自由！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="docker版clash在yacd页面更新订阅（模板规则使用ACL4SSR） | frienkie的记事本">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          docker版clash在yacd页面更新订阅（模板规则使用ACL4SSR）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-15 10:28:50" itemprop="dateCreated datePublished" datetime="2023-06-15T10:28:50+00:00">2023-06-15</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/posts/421134133/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/posts/421134133/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>最近借用了一个稳定的机场，于是想要在家中nas正式使用docker版本clash，其他设备直接使用HTTP代理。<br>参考：<a target="_blank" rel="noopener" href="https://fugary.com/?p=363">https://fugary.com/?p=363</a><br>说到docker版本的clash，目前唯一的UI界面自然就是<strong>yacd</strong>了。但是yacd相比CFW这类下载量最大的UI界面而言，最大的不同就是无法使用订阅链接更新。这是个很大的麻烦，尤其是很多小机场配置文件的Rule非常简略，我现在都用在线订阅转换工具来转换订阅后使用。</p>
+<span id="more"></span>
+
+<p>虽然只是旁路由，但既然想要作为家庭代理中枢，规则一定要尽可能全面才行。<br>本以为只能用sh命令文件定时运行这种不优雅的方式来更新订阅，没想到还有其他方法。<br>请看：<a target="_blank" rel="noopener" href="https://linshenkx.github.io/clash_docker/">https://linshenkx.github.io/clash_docker/</a><br>这篇提到了可以使用clash的proxy-provider特性在yacd中手动及自动更新节点。<br>其实早在2020年，clash内核就添加了这一功能，但直到现在运用都很少，因为和订阅功能有所重复，且大多机场模板都没有支持proxy-provider的配置文件。<br>这篇文章写得很不错，但大多数人还是想要到手即用，不想要浪费精力去学习。而他最后给出的模板文件规则又太简单了。<br>其他介绍proxy-provider特性的文章也存在这一问题。<br>于是我将目前最全面的ACL4SSR多国家版规则改为了proxy-provider的形式供各位到手即用。<br>下载链接：<a target="_blank" rel="noopener" href="https://drive.google.com/file/d/10usruFxvB4P11LytClcZpStw4O_Fl8c5/view?usp=drive_link">https://drive.google.com/file/d/10usruFxvB4P11LytClcZpStw4O_Fl8c5/view?usp=drive_link</a></p>
+<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><p>仅需使用订阅转换工具比如<br><a target="_blank" rel="noopener" href="https://ppc.linshenkx.cn/">https://ppc.linshenkx.cn/</a><br>填入这两处即可。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">proxy-providers:</span></span><br><span class="line">  <span class="attr">api.v1.mk:</span> <span class="comment">#此处不修改</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">http</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">修改为自己的</span></span><br><span class="line">    <span class="attr">interval:</span> <span class="number">3600</span></span><br><span class="line">    <span class="attr">path:</span> <span class="string">修改为自己的</span></span><br><span class="line">    <span class="attr">health-check:</span></span><br><span class="line">      <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">      <span class="attr">interval:</span> <span class="number">600</span></span><br><span class="line">      <span class="comment"># lazy: true</span></span><br><span class="line">      <span class="attr">url:</span> <span class="string">http://www.gstatic.com/generate_204</span></span><br></pre></td></tr></table></figure>
+<p>效果图：<br><img src="https://frienkie.s3.ap-northeast-1.amazonaws.com/img/yacd.PNG"></p>
+<hr>
+<h5 id="其他需要注意的地方："><a href="#其他需要注意的地方：" class="headerlink" title="其他需要注意的地方："></a>其他需要注意的地方：</h5><p>1.节点分区域采用的是fliter正则表达式过滤节点名字，如果机场命名很奇怪请自行搜索fliter修改关键字。<br>2.clash的docker目前有三个版本，clash，clash-premium，clash.meta。clash版本支持proxy-providers但不支持fliter功能。这一点确实很坑人。<br>3.订阅转换工具推荐自己部署然后挂个国内可访问的域名，因为proxy-providers需要经过此站点中转，如果挂掉的话节点更新也会无法使用。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"># 技术</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/1881670467/" rel="prev" title="时隔一年重新锐评俄乌战争">
+                  <i class="fa fa-angle-left"></i> 时隔一年重新锐评俄乌战争
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/2816769116/" rel="next" title="让普通手机支持esim的方法（基于速易卡科技对esim.me进行平替）">
+                  让普通手机支持esim的方法（基于速易卡科技对esim.me进行平替） <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fas fa-align-left"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Powered by Hexo</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.frienkie.eu.org/","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"Any comment is OK","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/posts/421134133/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>

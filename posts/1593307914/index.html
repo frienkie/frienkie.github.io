@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"frienkie.eu.org","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="onedrive是microsoft公司的云存储服务。目前能搞这么烧钱的服务的也就只有微软和谷歌类似的这么大的公司了。我用过许多云存储服务，微软的服务是目前最好的，也是国内可用的稳定云盘服务。现在许多资源网站已经广泛采用了。特别是最近百度网盘又搞了一次大规模净网行动，直接封禁了许多网盘账号。替换资源下载方式，从我做起。 我来说一下优势：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="onedrive详细使用指南">
+<meta property="og:url" content="http://frienkie.eu.org/posts/1593307914/index.html">
+<meta property="og:site_name" content="frienkie的记事本">
+<meta property="og:description" content="onedrive是microsoft公司的云存储服务。目前能搞这么烧钱的服务的也就只有微软和谷歌类似的这么大的公司了。我用过许多云存储服务，微软的服务是目前最好的，也是国内可用的稳定云盘服务。现在许多资源网站已经广泛采用了。特别是最近百度网盘又搞了一次大规模净网行动，直接封禁了许多网盘账号。替换资源下载方式，从我做起。 我来说一下优势：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/24/JrrxTH.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/24/JrsBjK.png">
+<meta property="article:published_time" content="2020-04-24T21:16:25.000Z">
+<meta property="article:modified_time" content="2026-01-12T16:34:22.541Z">
+<meta property="article:author" content="frienkie">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/04/24/JrrxTH.png">
+
+
+<link rel="canonical" href="http://frienkie.eu.org/posts/1593307914/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://frienkie.eu.org/posts/1593307914/","path":"posts/1593307914/","title":"onedrive详细使用指南"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>onedrive详细使用指南 | frienkie的记事本</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://comment.frienkie.eu.org/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="frienkie的记事本" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">frienkie的记事本</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">其实就是个记事本</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%91%E6%9D%A5%E8%AF%B4%E4%B8%80%E4%B8%8B%E4%BC%98%E5%8A%BF%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">我来说一下优势：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%BE%AE%E8%BD%AF%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%A9%B6%E7%AB%9F%E5%9C%A8%E5%93%AA%E5%91%A2%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">1.微软的服务器究竟在哪呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">2.如何使用？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E4%B8%AD%E4%B9%8B%E9%87%8D%EF%BC%9A%E6%95%99%E8%82%B2%E7%89%88%EF%BC%81"><span class="nav-number">3.1.</span> <span class="nav-text">重中之重：教育版！</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%89%80%E8%B0%93%E7%AE%A1%E7%90%86%E5%91%98%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">3.所谓管理员？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E4%BB%98%E8%B4%B9%E5%88%B0%E6%9C%9F%EF%BC%9F"><span class="nav-number">5.</span> <span class="nav-text">4.付费到期？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%85%B3%E4%BA%8E%E5%90%88%E4%B9%B0%E5%AE%B6%E5%BA%AD%E7%89%88%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">5.关于合买家庭版？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%85%B3%E4%BA%8E%E6%B7%98%E5%AE%9D%E4%BE%BF%E5%AE%9C%E7%9A%84%E5%90%84%E4%B8%AA%E7%89%88%E6%9C%AC%EF%BC%9F"><span class="nav-number">7.</span> <span class="nav-text">5.关于淘宝便宜的各个版本？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E5%85%B6%E4%BB%96%EF%BC%9F"><span class="nav-number">8.</span> <span class="nav-text">6.其他？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AE%E8%BD%AF%E6%89%93%E9%92%B1%EF%BC%81"><span class="nav-number">9.</span> <span class="nav-text">微软打钱！</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="frienkie"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">frienkie</p>
+  <div class="site-description" itemprop="description">讨论自由！</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">107</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:frienkiely@outlook.com" title="E-Mail → mailto:frienkiely@outlook.com" rel="noopener me" target="_blank"><i class="iconfont icon-email fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/frienkiely" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;frienkiely" rel="noopener me" target="_blank"><i class="iconfont icon-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://help.frienkie.eu.org/" title="help → https:&#x2F;&#x2F;help.frienkie.eu.org" rel="noopener me" target="_blank"><i class="iconfont icon-question fa-fw"></i>help</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://join.skype.com/Yp932LzxbRrI" title="Skype → https:&#x2F;&#x2F;join.skype.com&#x2F;Yp932LzxbRrI" rel="noopener me" target="_blank"><i class="iconfont icon-skype-fill fa-fw"></i>Skype</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="iconfont icon-dingyue fa-fw"></i>RSS</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://db.frienkie.eu.org/" title="Dashboard → https:&#x2F;&#x2F;db.frienkie.eu.org" rel="noopener me" target="_blank"><i class="fas fa-mobile fa-fw"></i>Dashboard</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://frienkie.eu.org/posts/1593307914/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="frienkie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="frienkie的记事本">
+      <meta itemprop="description" content="讨论自由！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="onedrive详细使用指南 | frienkie的记事本">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          onedrive详细使用指南
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-04-24 21:16:25" itemprop="dateCreated datePublished" datetime="2020-04-24T21:16:25+00:00">2020-04-24</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/posts/1593307914/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/posts/1593307914/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>onedrive是microsoft公司的云存储服务。目前能搞这么烧钱的服务的也就只有微软和谷歌类似的这么大的公司了。<br>我用过许多云存储服务，微软的服务是目前最好的，也是国内可用的稳定云盘服务。现在许多资源网站已经广泛采用了。特别是最近百度网盘又搞了一次大规模净网行动，直接封禁了许多网盘账号。替换资源下载方式，从我做起。</p>
+<h3 id="我来说一下优势："><a href="#我来说一下优势：" class="headerlink" title="我来说一下优势："></a>我来说一下优势：</h3><span id="more"></span>
+<p>1.下载者<strong>不需要登录</strong>，直接可以下载。<br>2.下载者完全不限速，并且可以使用IDM多线程下载工具，速度翻倍。<br>3.资源不存在封禁问题。事实上，连违规资源的举报方式都没有。曾经有别有用心之人联系微软官方客服举报涉黄资源，最后不了了之。<br>4.支持在线播放（仅世纪互联版），且<strong>没有任何审查</strong>。</p>
+<hr>
+<p>按提问方式介绍一下吧：</p>
+<h3 id="1-微软的服务器究竟在哪呢？"><a href="#1-微软的服务器究竟在哪呢？" class="headerlink" title="1.微软的服务器究竟在哪呢？"></a>1.微软的服务器究竟在哪呢？</h3><p>要区分商业版和家庭&#x2F;个人版<br>个人版&#x2F;教育版如图：<br><img src="https://s1.ax1x.com/2020/04/24/JrrxTH.png" alt="JrrxTH.png"><br>为了保证安全，微软也无法直接透露服务器地址，但是告诉过中国使用的是亚太地区的，也就是这五个之一。大陆主要使用的是香港服务器，但是传闻香港服务器已经被羊毛党占完了，因此可能使用其他服务器。<br><a target="_blank" rel="noopener" href="https://zvv.me/z/1803.html">如何查找服务器地址？</a>这篇文章可以帮助我们寻找存储服务器。<br>关于商业版：在2016年的时候中国区的商业版业务外包给了<strong>上海的世纪互联</strong>，可以购买onedrive中国区特供版，服务器在北京和上海。<strong>速度比亚洲服务器好很多，可以跑满宽带</strong>，并且<strong>不需要任何特殊手段</strong>。</p>
+<h3 id="2-如何使用？"><a href="#2-如何使用？" class="headerlink" title="2.如何使用？"></a>2.如何使用？</h3><p>目前有好几个版本：<strong>个人或家庭版、教育版、商业版</strong><br>个人版、家庭版、教育版都是<strong>国外服务器</strong>，需要梯子或是改hosts速度才能用，在此不再阐述。<br>个人版可以直接注册获得5G空间用于办公。<br>需要扩容则合买家庭版或是个人版。<br>详情：<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/microsoft-365/onedrive/compare-onedrive-plans?activetab=tab:primaryr1">家庭版购买</a><br><img src="https://s1.ax1x.com/2020/04/24/JrsBjK.png" alt="JrsBjK.png"><br>商业版分小型企业和大型企业，<strong>并且区别中国版和全球版，仅支持包年</strong>。注意官网上介绍比较混乱，提供链接：<br><a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/microsoft-365/compare-more-china-versions-microsoft-365">大型企业世纪互联版</a><br><a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/microsoft-365/compare-china-global-versions-microsoft-365">中小型企业世纪互联版</a><br><a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/microsoft-365/compare-all-microsoft-365-products?&activetab=tab:primaryr2">国际商业版</a><br><em>注意</em>：<strong>在中国大陆最好使用世纪互联版！</strong><br>另外，国际商业版可以咨询免费更换除世纪互联之外任意地区的服务器。个人财力有限，不甚了解。</p>
+<h4 id="重中之重：教育版！"><a href="#重中之重：教育版！" class="headerlink" title="重中之重：教育版！"></a>重中之重：教育版！</h4><p>可以通过大学教育邮箱，也就是edu后缀的邮箱<strong>申请永久1T</strong>免费空间。<br><a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/education/products/office/default.aspx">申请入口</a><br>教育版仅能在网页上访问，无法使用客户端。<br><strong>教育版、企业版、个人版的账号无法在其他版本中互相使用。</strong></p>
+<h3 id="3-所谓管理员？"><a href="#3-所谓管理员？" class="headerlink" title="3.所谓管理员？"></a>3.所谓管理员？</h3><p>除了个人版之外，都存在管理员。<br>管理员即是<strong>支付费用</strong>的账号，拥有最高权限，可以查看、编辑任何成员的所有文件。<br>申请成为教育版的管理员需要edu邮箱服务器进行验证，这个能力掌握在学校手里，而至今中国的绝大多数大学没有管理员。因此基本是安全的。</p>
+<h3 id="4-付费到期？"><a href="#4-付费到期？" class="headerlink" title="4.付费到期？"></a>4.付费到期？</h3><p>付费到期会邮箱提醒，到期后现有文件冻结，无法上传新文件，原有文件及分享链接可以确定保留3个月，如果不续订则需要将空间自行删除至免费版大小后才能上传文件。<br>至于是否会强制删除文件，微软没有正面回应，目前也没有强制删除的情况的新闻。</p>
+<h3 id="5-关于合买家庭版？"><a href="#5-关于合买家庭版？" class="headerlink" title="5.关于合买家庭版？"></a>5.关于合买家庭版？</h3><p>由于管理员的特殊性，合买的管理员尽量要信得过。<br>合买到期后，合买成员可以和不同的人继续合买，原有文件继续保留。</p>
+<h3 id="5-关于淘宝便宜的各个版本？"><a href="#5-关于淘宝便宜的各个版本？" class="headerlink" title="5.关于淘宝便宜的各个版本？"></a>5.关于淘宝便宜的各个版本？</h3><p>1.淘宝教育版是通过收集别人的教育邮箱或是临时教育邮箱注册的，未知管理员，并且一旦教育邮箱失效，原有账户也一并失效。<br>2.淘宝家庭版也是合买时的空缺拿出去卖，管理员未知，并且价格不比和知道的人一起买便宜。<br>3.淘宝企业版是收集的已经购买的企业的人数空缺（因为企业版可以支持最高250个人的使用，每人1T或无线空间。）<br>简单来说都是由于<strong>管理员未知</strong>，风险极大，不建议任何人购买，因为数据无价。</p>
+<h3 id="6-其他？"><a href="#6-其他？" class="headerlink" title="6.其他？"></a>6.其他？</h3><p>事实上还有开发者版的E3无限容量，不过只是用于开发试用，到期需要重新验证。比较麻烦，也是国外服务器，有兴趣可以尝试。</p>
+<hr>
+<p>最后我想说：</p>
+<h3 id="微软打钱！"><a href="#微软打钱！" class="headerlink" title="微软打钱！"></a>微软打钱！</h3>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"># 技术</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2994165360/" rel="prev" title="简单介绍hosts和onedrive使用方法">
+                  <i class="fa fa-angle-left"></i> 简单介绍hosts和onedrive使用方法
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/2521024/" rel="next" title="关于onedrive的更多">
+                  关于onedrive的更多 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fas fa-align-left"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Powered by Hexo</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.frienkie.eu.org/","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"Any comment is OK","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/posts/1593307914/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>

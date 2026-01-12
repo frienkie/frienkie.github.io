@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"frienkie.eu.org","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="最近，有一篇很有名的文章吸引了我这种一加7pro想要再用4年的人。 通过PC&#x2F;SC智能卡读卡器配置esim.me的SIM卡 | Sparktour’s 这篇文章介绍了如何对esim.me的卡以一种廉价的方式写入esim数据。 虽然esim.me的卡经过了一次小团体开车，但是邮费加起来怎么都无法接受了。 他の方法があるのでしょうか？実はホントにあるよね。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="让普通手机支持esim的方法（基于速易卡科技对esim.me进行平替）">
+<meta property="og:url" content="http://frienkie.eu.org/posts/2816769116/index.html">
+<meta property="og:site_name" content="frienkie的记事本">
+<meta property="og:description" content="最近，有一篇很有名的文章吸引了我这种一加7pro想要再用4年的人。 通过PC&#x2F;SC智能卡读卡器配置esim.me的SIM卡 | Sparktour’s 这篇文章介绍了如何对esim.me的卡以一种廉价的方式写入esim数据。 虽然esim.me的卡经过了一次小团体开车，但是邮费加起来怎么都无法接受了。 他の方法があるのでしょうか？実はホントにあるよね。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://d2so3kg3ye9d14.cloudfront.net/img/20230808141253">
+<meta property="og:image" content="https://d2so3kg3ye9d14.cloudfront.net/img/1690904348119">
+<meta property="og:image" content="https://d2so3kg3ye9d14.cloudfront.net/img/20230808144604">
+<meta property="og:image" content="https://d2so3kg3ye9d14.cloudfront.net/img/%E6%8D%95%E8%8E%B7">
+<meta property="og:image" content="https://d2so3kg3ye9d14.cloudfront.net/img/1691071732341">
+<meta property="og:image" content="https://d2so3kg3ye9d14.cloudfront.net/img/20230808154227">
+<meta property="article:published_time" content="2023-08-04T09:45:53.000Z">
+<meta property="article:modified_time" content="2026-01-12T16:34:22.538Z">
+<meta property="article:author" content="frienkie">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://d2so3kg3ye9d14.cloudfront.net/img/20230808141253">
+
+
+<link rel="canonical" href="http://frienkie.eu.org/posts/2816769116/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://frienkie.eu.org/posts/2816769116/","path":"posts/2816769116/","title":"让普通手机支持esim的方法（基于速易卡科技对esim.me进行平替）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>让普通手机支持esim的方法（基于速易卡科技对esim.me进行平替） | frienkie的记事本</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://comment.frienkie.eu.org/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="frienkie的记事本" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">frienkie的记事本</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">其实就是个记事本</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%87%E5%8D%A1%E5%90%8Eapp%E5%8F%88%E4%BC%9A%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E5%8D%A1%E7%89%87%EF%BC%8C%E4%BD%86%E6%98%AF%E8%BF%90%E8%90%A5%E5%95%86%E7%A1%AE%E5%AE%9E%E5%88%87%E6%8D%A2%E8%BF%87%E5%8E%BB%E4%BA%86%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">切卡后app又会无法识别卡片，但是运营商确实切换过去了。</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="frienkie"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">frienkie</p>
+  <div class="site-description" itemprop="description">讨论自由！</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">107</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:frienkiely@outlook.com" title="E-Mail → mailto:frienkiely@outlook.com" rel="noopener me" target="_blank"><i class="iconfont icon-email fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/frienkiely" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;frienkiely" rel="noopener me" target="_blank"><i class="iconfont icon-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://help.frienkie.eu.org/" title="help → https:&#x2F;&#x2F;help.frienkie.eu.org" rel="noopener me" target="_blank"><i class="iconfont icon-question fa-fw"></i>help</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://join.skype.com/Yp932LzxbRrI" title="Skype → https:&#x2F;&#x2F;join.skype.com&#x2F;Yp932LzxbRrI" rel="noopener me" target="_blank"><i class="iconfont icon-skype-fill fa-fw"></i>Skype</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="iconfont icon-dingyue fa-fw"></i>RSS</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://db.frienkie.eu.org/" title="Dashboard → https:&#x2F;&#x2F;db.frienkie.eu.org" rel="noopener me" target="_blank"><i class="fas fa-mobile fa-fw"></i>Dashboard</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://frienkie.eu.org/posts/2816769116/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="frienkie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="frienkie的记事本">
+      <meta itemprop="description" content="讨论自由！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="让普通手机支持esim的方法（基于速易卡科技对esim.me进行平替） | frienkie的记事本">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          让普通手机支持esim的方法（基于速易卡科技对esim.me进行平替）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-08-04 09:45:53" itemprop="dateCreated datePublished" datetime="2023-08-04T09:45:53+00:00">2023-08-04</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/posts/2816769116/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/posts/2816769116/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>最近，有一篇很有名的文章吸引了我这种一加7pro想要再用4年的人。</p>
+<p><a target="_blank" rel="noopener" href="https://sparktour.me/2022/11/20/configure-esim-me-card-with-pc-sc-reader/">通过PC&#x2F;SC智能卡读卡器配置esim.me的SIM卡 | Sparktour’s</a></p>
+<p>这篇文章介绍了如何对esim.me的卡以一种廉价的方式写入esim数据。</p>
+<p>虽然esim.me的卡经过了一次小团体开车，但是邮费加起来怎么都无法接受了。</p>
+<p>他の方法があるのでしょうか？実はホントにあるよね。</p>
+<span id="more"></span>
+<p>淘宝速易卡科技即在售卖iphone的esim芯片和转接卡：<a target="_blank" rel="noopener" href="https://www.taobao.com/list/item/660400174418.htm">ESIM转接板，5*6芯片测试板，开卡板，可接cpe路由等使用 - Taobao</a></p>
+<p>使用GBA焊台即可将其改造为“自制”的esim.me，不过比较考手艺了。原先也有卖成品esim卡，只不过由于违规下架，但是找客服依然可以购买，价格是80元不包邮。</p>
+<p>这个价格怎么说其实也不太好，但是也没有其他办法了对吧。</p>
+<p><del>说起就来气，之前的一批rakuten mini 150元，现在屏幕碎了都要卖200元</del></p>
+<p>实物是这样的：</p>
+<img title="" src="https://d2so3kg3ye9d14.cloudfront.net/img/20230808141253" alt="" style="zoom:50%;" data-align="center">
+
+<p>另外，由于是自制的，自然就不能通过官方app那么轻松地修改卡了。当然就只有三种方法了：</p>
+<p>1.LTE模块外接win11修改。</p>
+<p>2.PC&#x2F;SC协议芯片卡读卡器修改。</p>
+<p>3.magisk面具<a target="_blank" rel="noopener" href="https://github.com/AndroPlus-org/magisk-module-openeuicc">AndroPlus-org&#x2F;magisk-module-openeuicc (github.com)</a>修改。</p>
+<p>PC&#x2F;SC协议芯片卡读卡器这种东西对个人需求确实很少，淘宝多半在50元，天猫有一家<em>USB1.0</em>的价格在28.7元：</p>
+<p><a target="_blank" rel="noopener" href="https://detail.tmall.com/item.htm?abbucket=9&id=689607559458&ns=1&sku_properties=21591:42861&spm=a21n57.1.0.0.3986523cuAfHAl">USB智能读卡器RTS5169 ATM银行报税CAC IC卡 身份证smart读卡器多合一万能手机相机sd卡tf卡type-c电脑车载u-tmall.com天猫</a></p>
+<p>不过最后我在闲鱼上花30元买了二手的读卡器：</p>
+<img title="" src="https://d2so3kg3ye9d14.cloudfront.net/img/1690904348119" alt="" style="zoom:33%;">
+
+<p>另外Nano卡还需要标准卡板来插入，这一点也有点难绷，因为现在就算是新办的卡多半卡板也是半张银行卡的大小了，只有去pdd再卖一张</p>
+<p>总计一套125元（包括邮费）</p>
+<p>已经感觉到有点亏了。<del>虽然比起正品esim.me已经算是骨折了。</del></p>
+<hr>
+<p>过程是十分顺利的，因为根据反馈，LPADesktop的兼容性非常好。</p>
+<p>安装docker-compose环境自然就算了，用博主编译好的release就行，还支持mac os：<a target="_blank" rel="noopener" href="https://github.com/sparkcyf/LPAdesktop/releases/tag/lpad">Release 1892d5402eac8bcfe8d646aae1029b3bff8f34e5 · sparkcyf&#x2F;LPAdesktop (github.com)</a></p>
+<p>安装java环境后，连接读卡器，按照说明，顺利写入激活。</p>
+<img title="" src="https://d2so3kg3ye9d14.cloudfront.net/img/20230808144604" alt="" style="zoom:33%;" data-align="center">
+
+<img title="" src="https://d2so3kg3ye9d14.cloudfront.net/img/%E6%8D%95%E8%8E%B7" alt="" style="zoom:80%;" data-align="center">
+
+<p>顺利到我的内心毫无波澜了。注册了英国最近的免费esim接码，也毫无问题。</p>
+<p><a target="_blank" rel="noopener" href="https://shuzijumin.com/thread-53-1-1.html">白嫖英国esim - 经验分享 - 数字居民论坛 - Powered by Discuz! (shuzijumin.com)</a></p>
+<img title="" src="https://d2so3kg3ye9d14.cloudfront.net/img/1691071732341" alt="" style="zoom:25%;" data-align="center">
+
+<hr>
+<p>直到我发现，这实在是太蠢了。</p>
+<p>这台读卡器宽6.5cm，长8cm，最厚也就2cm，大概半个一加7pro的大小，空白卡板可以放钱包里，不可谓不便携，但确实也有点麻烦。尤其是切卡必须取出安装在卡板上，电脑也需要java环境连接这一套设备。更要命的是国内申请esim副卡已经关闭，用国外esim接码经常要切卡，每次都要这么一搞。更别说有些特殊esim只能app下卡，没有QR码能用。。。</p>
+<p>openeuicc方案呢？</p>
+<ul>
+<li><p>我在氢os10（安卓10）刷入后，连图标都没有出现</p>
+</li>
+<li><p>于是我一步到位刷到了pixel experience 安卓13：<a target="_blank" rel="noopener" href="https://www.coolapk.com/feed/39325125?shareKey=OWZkOTQxNjg5Y2IxNjRkMWVkNWQ~">一加7T&#x2F;Pro PE13 Unofficial 来自 just_pisces - 酷安</a></p>
+</li>
+<li><p>图标出现了，app可以进入，但是识别不到卡</p>
+</li>
+<li><p>根据xda反馈，最近可以正常使用的一加型号为一加11</p>
+<ul>
+<li>是驱动的原因吗？</li>
+</ul>
+<hr>
+</li>
+</ul>
+<p>如果只是这样的话，那我也可以接受。however，现在有一个非常神奇的情况：</p>
+<p>重启后openeuicc有概率可以使用，也就是能读取到卡，但是：</p>
+<h4 id="切卡后app又会无法识别卡片，但是运营商确实切换过去了。"><a href="#切卡后app又会无法识别卡片，但是运营商确实切换过去了。" class="headerlink" title="切卡后app又会无法识别卡片，但是运营商确实切换过去了。"></a>切卡后app又会无法识别卡片，但是运营商确实切换过去了。</h4><img title="" src="https://d2so3kg3ye9d14.cloudfront.net/img/20230808154227" alt="" style="zoom:33%;" data-align="center">
+
+<p>很奇怪的结局，但突然感觉又不是不能用了。</p>
+<p>其实我很想发邮件询问一下这位润Canada的openeuicc developer<a target="_blank" rel="noopener" href="https://typeblog.net/">Peter Cai</a>到底是什么原因。也许之后会问一下的。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"># 技术</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/421134133/" rel="prev" title="docker版clash在yacd页面更新订阅（模板规则使用ACL4SSR）">
+                  <i class="fa fa-angle-left"></i> docker版clash在yacd页面更新订阅（模板规则使用ACL4SSR）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/2596815297/" rel="next" title="Rebuild of NHK chapter 4">
+                  Rebuild of NHK chapter 4 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fas fa-align-left"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Powered by Hexo</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.frienkie.eu.org/","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"Any comment is OK","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/posts/2816769116/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>

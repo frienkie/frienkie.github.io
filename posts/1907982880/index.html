@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"frienkie.eu.org","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="梅林路由的形态较为骑墙，固件可以实现大部分软路由功能，但是路由的本身硬件水平却是处于高于一般路由但是远低于软路由的尴尬位置。作为翻墙设备，尤其是v2ray的翻墙设备，并不算非常合格。尤其是我购买的dir-868l，刷了梅林固件cpu温度可以直升80度，这个时候再用来路由翻墙，高数据量的加密解密，温度就会不可想象了。此文仅作为最新改版梅林固件的翻墙教程，请估计自己的路由水平量力而行。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="merlin梅林路由使用v2ray，ssr实现代理翻墙">
+<meta property="og:url" content="http://frienkie.eu.org/posts/1907982880/index.html">
+<meta property="og:site_name" content="frienkie的记事本">
+<meta property="og:description" content="梅林路由的形态较为骑墙，固件可以实现大部分软路由功能，但是路由的本身硬件水平却是处于高于一般路由但是远低于软路由的尴尬位置。作为翻墙设备，尤其是v2ray的翻墙设备，并不算非常合格。尤其是我购买的dir-868l，刷了梅林固件cpu温度可以直升80度，这个时候再用来路由翻墙，高数据量的加密解密，温度就会不可想象了。此文仅作为最新改版梅林固件的翻墙教程，请估计自己的路由水平量力而行。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://frienkie.s3.ap-northeast-1.amazonaws.com/frienkie_picture-master/114442hmicttc3xlsz3iii.png">
+<meta property="og:image" content="https://frienkie.s3.ap-northeast-1.amazonaws.com/frienkie_picture-master/21321-jkq.PNG">
+<meta property="og:image" content="https://frienkie.s3.ap-northeast-1.amazonaws.com/frienkie_picture-master/hhlkpcs.PNG">
+<meta property="article:published_time" content="2021-01-21T22:23:30.000Z">
+<meta property="article:modified_time" content="2026-01-12T16:34:22.539Z">
+<meta property="article:author" content="frienkie">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://frienkie.s3.ap-northeast-1.amazonaws.com/frienkie_picture-master/114442hmicttc3xlsz3iii.png">
+
+
+<link rel="canonical" href="http://frienkie.eu.org/posts/1907982880/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://frienkie.eu.org/posts/1907982880/","path":"posts/1907982880/","title":"merlin梅林路由使用v2ray，ssr实现代理翻墙"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>merlin梅林路由使用v2ray，ssr实现代理翻墙 | frienkie的记事本</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://comment.frienkie.eu.org/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="frienkie的记事本" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">frienkie的记事本</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">其实就是个记事本</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%81"><span class="nav-number">1.</span> <span class="nav-text">注意！</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E6%96%B0%E5%9B%BA%E4%BB%B6%E6%B7%BB%E5%8A%A0%E4%BA%86%E9%92%88%E5%AF%B9fq%E7%9A%84%E5%85%B3%E9%94%AE%E8%AF%8D%E5%B1%8F%E8%94%BD%EF%BC%8C%E5%B9%B6%E4%B8%94%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D%E6%97%A0%E6%95%88%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">最新固件添加了针对fq的关键词屏蔽，并且修改文件名无效。</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="frienkie"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">frienkie</p>
+  <div class="site-description" itemprop="description">讨论自由！</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">107</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:frienkiely@outlook.com" title="E-Mail → mailto:frienkiely@outlook.com" rel="noopener me" target="_blank"><i class="iconfont icon-email fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/frienkiely" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;frienkiely" rel="noopener me" target="_blank"><i class="iconfont icon-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://help.frienkie.eu.org/" title="help → https:&#x2F;&#x2F;help.frienkie.eu.org" rel="noopener me" target="_blank"><i class="iconfont icon-question fa-fw"></i>help</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://join.skype.com/Yp932LzxbRrI" title="Skype → https:&#x2F;&#x2F;join.skype.com&#x2F;Yp932LzxbRrI" rel="noopener me" target="_blank"><i class="iconfont icon-skype-fill fa-fw"></i>Skype</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="iconfont icon-dingyue fa-fw"></i>RSS</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://db.frienkie.eu.org/" title="Dashboard → https:&#x2F;&#x2F;db.frienkie.eu.org" rel="noopener me" target="_blank"><i class="fas fa-mobile fa-fw"></i>Dashboard</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://frienkie.eu.org/posts/1907982880/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="frienkie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="frienkie的记事本">
+      <meta itemprop="description" content="讨论自由！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="merlin梅林路由使用v2ray，ssr实现代理翻墙 | frienkie的记事本">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          merlin梅林路由使用v2ray，ssr实现代理翻墙
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-01-21 22:23:30" itemprop="dateCreated datePublished" datetime="2021-01-21T22:23:30+00:00">2021-01-21</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/posts/1907982880/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/posts/1907982880/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>梅林路由的形态较为骑墙，固件可以实现大部分软路由功能，但是路由的本身硬件水平却是处于高于一般路由但是远低于软路由的尴尬位置。作为翻墙设备，尤其是v2ray的翻墙设备，并不算非常合格。尤其是我购买的dir-868l，刷了梅林固件cpu温度可以直升80度，这个时候再用来路由翻墙，高数据量的加密解密，温度就会不可想象了。此文仅作为最新改版梅林固件的翻墙教程，请估计自己的路由水平量力而行。</p>
+<span id="more"></span>
+<p>目前该插件确实相当完善，可以支持v2ray，trojan，ssr的链接和订阅地址更新。</p>
+<hr>
+<p>目前由于koolshare承受了很大的压力，与fq有关问题一律禁止讨论。实际插件的开发和更新是由<strong>hq450</strong>大佬负责，甚至v2ray官方都没有提到该工具。<br>github仓库地址：<br><em><a target="_blank" rel="noopener" href="https://github.com/hq450/fancyss_history_package">https://github.com/hq450/fancyss_history_package</a></em><br>在该页面内可以找到适合不同路由的科学上网插件。进入该仓库下载后缀名为tar.gz的压缩文件即可。<br>华硕ac68u属于arm384架构。如果是该设备可以通过：<br><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/idealism-xxm/fancyss/fancyss_arm/history_package/shadowsocks_4.3.7.tar.gz">https://cdn.jsdelivr.net/gh/idealism-xxm/fancyss/fancyss_arm/history_package/shadowsocks_4.3.7.tar.gz</a><br>直接下载最新版。同理其他请自行下载。<br>然后转到<strong>软件中心——〉离线安装</strong>页面，上传此文件即可自动安装。</p>
+<h3 id="注意！"><a href="#注意！" class="headerlink" title="注意！"></a>注意！</h3><h3 id="最新固件添加了针对fq的关键词屏蔽，并且修改文件名无效。"><a href="#最新固件添加了针对fq的关键词屏蔽，并且修改文件名无效。" class="headerlink" title="最新固件添加了针对fq的关键词屏蔽，并且修改文件名无效。"></a>最新固件添加了针对fq的关键词屏蔽，并且修改文件名无效。</h3><p><img src="https://frienkie.s3.ap-northeast-1.amazonaws.com/frienkie_picture-master/114442hmicttc3xlsz3iii.png"></p>
+<p>方法有两个，一是重新加密混淆该文件，熟悉linux文件系统的人自然不用我多说。二是修该梅林固件的.ssh部署文件，去除屏蔽程序。</p>
+<hr>
+<p>网传方法，在<strong>软件中心</strong>安装<strong>webshell</strong>后，输入命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i ‘s/tdetect_package/t# detect_package/g’ /koolshare/scripts/ks_tar_install.sh</span><br></pre></td></tr></table></figure>
+<p>但是实测发现会报错 sed unmatched。由于本人没有熟悉linux命令，尝试其他解决方法。</p>
+<hr>
+<p>winScp是一个支持SSH的远程文件管理软件。在同一局域网中的电脑下载该软件后，连接路由。<br>需要提前打开<strong>系统管理——〉系统设置的SSH Daemon处的开关</strong>来开启SSH连接。<br><img src="https://frienkie.s3.ap-northeast-1.amazonaws.com/frienkie_picture-master/21321-jkq.PNG"><br>协议设置为<strong>scp</strong>，地址为路由内网登陆地址，用户名密码都与登陆路由器页面一致。<br>正常情况下，可以连接。<br>之后访问</p>
+<p><font color=Blue>&#x2F;koolshare&#x2F;scripts&#x2F;ks_tar_install.sh</font></p>
+<p> 编辑该文件，删除</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">detect_package()&#123;</span><br><span class="line">        local TEST_WORD=&quot;$1&quot;</span><br><span class="line">        local ILLEGAL_KEYWORDS=&quot;ss|乳酸菌饮料|s-s|违禁软件|v贰瑞|trojan|clash|wireguard|koolss|brook&quot;</span><br><span class="line">        local KEY_MATCH=$(echo &quot;$&#123;TEST_WORD&#125;&quot; | grep -Eo &quot;$ILLEGAL_KEYWORDS&quot;)</span><br><span class="line">        </span><br><span class="line">        if [ -n &quot;$KEY_MATCH&quot; ]; then</span><br><span class="line">                echo_date =======================================================</span><br><span class="line">                echo_date &quot;检测到离线安装包：$&#123;soft_name&#125; 含非法关键词！！！&quot;</span><br><span class="line">                echo_date &quot;根据法律规定，koolshare软件中心将不会安装此插件！！！&quot;</span><br><span class="line">                echo_date &quot;删除相关文件并退出...&quot;</span><br><span class="line">                echo_date =======================================================</span><br><span class="line">                clean</span><br><span class="line">                exit 1</span><br><span class="line">                fi</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>正是由于此函数限制安装包关键词。<br>保存后，即可正常安装。(会提示该函数not found，不影响安装)<br>安装之后，配置面板非常常规，不用多说。<br><img src="https://frienkie.s3.ap-northeast-1.amazonaws.com/frienkie_picture-master/hhlkpcs.PNG"></p>
+<hr>
+<p>ps：<br>1.建议使用免费的ddnsto，可以通过自定义域名远程管理路由，相当方便。<br>2.可以在DNS设定中使用v2ray的本地DNS，但是对设备负担极大。一般是通过gfwlist核对进行分流，对于复杂网络环境不是非常好。<br>3.最开始修改文件名就可安装，后续加强了审核机制。这手伸得也太长了吧。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"># 技术</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/3565580555/" rel="prev" title="对于Netflix原创动画翻车的看法">
+                  <i class="fa fa-angle-left"></i> 对于Netflix原创动画翻车的看法
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/439854514/" rel="next" title="oo.parts初探？？~~其实是moonfall短评">
+                  oo.parts初探？？~~其实是moonfall短评 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fas fa-align-left"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Powered by Hexo</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.frienkie.eu.org/","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"Any comment is OK","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/posts/1907982880/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>

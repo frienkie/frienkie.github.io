@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"frienkie.eu.org","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="众所周知，由于Gitee目前彻底放弃了共享，本站的图片也彻底无法访问了。当前唯一的解决方法就是购买对象存储服务作为图床。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="信用卡BIN码及其限制详解（对海淘支付方式的探索，图床选择的建议）">
+<meta property="og:url" content="http://frienkie.eu.org/posts/2810313936/index.html">
+<meta property="og:site_name" content="frienkie的记事本">
+<meta property="og:description" content="众所周知，由于Gitee目前彻底放弃了共享，本站的图片也彻底无法访问了。当前唯一的解决方法就是购买对象存储服务作为图床。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://frienkie.s3.ap-northeast-1.amazonaws.com/img/20220605223211.png">
+<meta property="og:image" content="https://frienkie.s3.ap-northeast-1.amazonaws.com/img/20220605234758.png">
+<meta property="og:image" content="https://frienkie.s3.ap-northeast-1.amazonaws.com/img/20220606115045.png">
+<meta property="article:published_time" content="2022-06-05T21:50:10.000Z">
+<meta property="article:modified_time" content="2026-01-12T16:34:22.538Z">
+<meta property="article:author" content="frienkie">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://frienkie.s3.ap-northeast-1.amazonaws.com/img/20220605223211.png">
+
+
+<link rel="canonical" href="http://frienkie.eu.org/posts/2810313936/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://frienkie.eu.org/posts/2810313936/","path":"posts/2810313936/","title":"信用卡BIN码及其限制详解（对海淘支付方式的探索，图床选择的建议）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>信用卡BIN码及其限制详解（对海淘支付方式的探索，图床选择的建议） | frienkie的记事本</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://comment.frienkie.eu.org/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="frienkie的记事本" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">frienkie的记事本</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">其实就是个记事本</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="frienkie"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">frienkie</p>
+  <div class="site-description" itemprop="description">讨论自由！</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">107</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:frienkiely@outlook.com" title="E-Mail → mailto:frienkiely@outlook.com" rel="noopener me" target="_blank"><i class="iconfont icon-email fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/frienkiely" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;frienkiely" rel="noopener me" target="_blank"><i class="iconfont icon-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://help.frienkie.eu.org/" title="help → https:&#x2F;&#x2F;help.frienkie.eu.org" rel="noopener me" target="_blank"><i class="iconfont icon-question fa-fw"></i>help</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://join.skype.com/Yp932LzxbRrI" title="Skype → https:&#x2F;&#x2F;join.skype.com&#x2F;Yp932LzxbRrI" rel="noopener me" target="_blank"><i class="iconfont icon-skype-fill fa-fw"></i>Skype</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="iconfont icon-dingyue fa-fw"></i>RSS</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://db.frienkie.eu.org/" title="Dashboard → https:&#x2F;&#x2F;db.frienkie.eu.org" rel="noopener me" target="_blank"><i class="fas fa-mobile fa-fw"></i>Dashboard</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://frienkie.eu.org/posts/2810313936/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="frienkie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="frienkie的记事本">
+      <meta itemprop="description" content="讨论自由！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="信用卡BIN码及其限制详解（对海淘支付方式的探索，图床选择的建议） | frienkie的记事本">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          信用卡BIN码及其限制详解（对海淘支付方式的探索，图床选择的建议）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-06-05 21:50:10" itemprop="dateCreated datePublished" datetime="2022-06-05T21:50:10+00:00">2022-06-05</time>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/posts/2810313936/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/posts/2810313936/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>众所周知，由于Gitee目前彻底放弃了共享，本站的图片也彻底无法访问了。<br>当前唯一的解决方法就是购买对象存储服务作为图床。</p>
+<span id="more"></span>
+<p>然后我理所当然的选择了阿里云国际站，因为我正好有一个法国的手机号。顺利注册成功之后，开始绑定支付方式才发现只有信用卡。可是官网明明在支持的支付方式上有paypal的标识。</p>
+<p>通过咨询客服得知目前欧洲只支持信用卡。这也不是什么大问题，我顺利的绑定好了我的信用卡，转到oss，选择年套餐2.45刀，支付成功。</p>
+<p>转到control table，点击开通服务，duang地一下，一个弹窗就砸在我的脸上：</p>
+<img src="https://frienkie.s3.ap-northeast-1.amazonaws.com/img/20220605223211.png" style="zoom: 25%;" />
+
+<p>此时我大呼不妙，才发现原来阿里云对信用卡的BIN码有限制。</p>
+<hr>
+<p>信用卡BIN码即信用卡卡号前6位，每个银行都有自己拥有的多个BIN码，也就是说，通过BIN码可以得知此信用卡的发卡行。</p>
+<p>说来惭愧，我之前的对工行星座卡的介绍中，有人问我能否通过此卡支付美国amazon，我说当然可以。事实上是我见识短浅了。BIN码的作用其实就是让收款方可以得知信用卡发卡行，从而可以拒收中断交易。</p>
+<p>一般极少的收款方会验证BIN码，最有名的限制就是apple。<strong>如果你想要转区或者添加支付方式，你的信用卡BIN码必须和选择的国家一致。</strong></p>
+<p>这是最严格的支付方式，因为以一般的方式很难拿到其他国家的信用卡。——真的是这样的吗？</p>
+<p>其实<strong>易贝卡</strong>服务就可以很简单的得到美国的虚拟信用卡绑定一系列交易，并且只需要支付额外5%的充值费用。然而该服务由于未知原因于今年4月15日关停。</p>
+<p>除了这个方法之外，目前想要申请国外信用卡并且能够充值的方式都需要建立个人信用档案，提交护照并且审核，十分复杂。</p>
+<p>（五大行有和美国银行联名的卡，比如中行运通卡，但此类卡依然无法过BIN验证）</p>
+<p>不过一般对于apple和亚马逊还有更好的方法，就是申请美国的paypal。在淘宝花50元就可获得一个无额外花费就可以收短信的电话卡，用其来申请美国paypal。因为paypal不会验证BIN码，因此用paypal来完成交易是完全没有问题的。</p>
+<p>（注：一般情况下，可能会触发paypal验证机制，需要你上传自己的护照照片才能使用这个paypal账户。不过这个审核不严，我的护照已经过期了也没有问题）</p>
+<hr>
+<p>说回之后的事情。我咨询客服后得知需要经过KYC认证才能开通。这个KYC认证就是上传护照照片，使用的信用卡照片经过审核。很可惜我提交之后发现不过审，再次工单咨询后得到的结果是：</p>
+<img src="https://frienkie.s3.ap-northeast-1.amazonaws.com/img/20220605234758.png" style="zoom: 50%;" />
+
+<p>非常无语。</p>
+<p>有风险在扣完钱之后才告诉我是吧？</p>
+<p>然后我提交了退款申请，但是至今还在办理，没有收到退款。</p>
+<hr>
+<p>那么关于图床的问题，由于之前是gitee图床，所以很不幸被封了。至此，国内可以使用的免费图床里面看得过去的就只有sm图床了。两年前sm图床就更新了账户功能可以更方便的管理图片了，不过就速度而言还是有点慢。</p>
+<p>其实也考虑了一下给sm图床付费，但是目前sm图床只保留了lifetime套餐，价格是59美元。</p>
+<img src="https://frienkie.s3.ap-northeast-1.amazonaws.com/img/20220606115045.png" style="zoom: 33%;" />
+
+<p>怎么这么让人担心呢？115的11.5年会员，迅雷终生会员，这种终身的东西，要么是雷要么是灵车。</p>
+<p>不管怎么说，59美元有些难以接受，因为现在阿里云一年的OSS也只需要9人民币，我要用30年才抵得上这个套餐，太让人不安了。另外名义上是禁止NSFW的，虽然我认为只是名义上而已。</p>
+<p>除此之外，图床还有什么好的选择吗？</p>
+<p>亚马逊cloud的S3存储和微软Azure的对象存储都支持1年的免费试用，虽然价格不如阿里云便宜。由世纪互联运营的azure的速度也绝对不慢了。总之只要肯花钱，事情都好解决。出于个人的安全因素，阿里云肯定不是最终方案，毕竟人脸识别太吓人了。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"># 技术</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2416475698/" rel="prev" title="GFW绕过方法可用度现状探究">
+                  <i class="fa fa-angle-left"></i> GFW绕过方法可用度现状探究
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/1490130933/" rel="next" title="The song of cannabis">
+                  The song of cannabis <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fas fa-align-left"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Powered by Hexo</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.frienkie.eu.org/","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"Any comment is OK","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":[],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/posts/2810313936/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>
